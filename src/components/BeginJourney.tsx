@@ -18,12 +18,8 @@ function BeginJourney() {
 			<div className="row justify-content-center">
 				<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main-journey">
 					<div className="">
-						{/*Top Header*/}
-						<div className="mb-5 mt-5">
-							<p className="text-center begin-info-text" >
-								This app will give you a complete understanding <br/>of the following:
-							</p>
-						</div>
+						{/* Top Header */}
+						<Header showprogress={false} total_steps={0} current_step={0} title="" subtitle="This app will give you a complete understanding <br/>of the following:"/>
 						{/*Content Area*/}
 						<div className="p-3">
 							<div className="mb-4">
