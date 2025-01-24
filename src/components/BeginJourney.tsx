@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { ModuleItem } from './Common/ModuleItem';
+import { Header } from "./Common/Header";
 
 const tabs = [
 	{ imgSrc: '/assets/eligibility-icon.png', title: 'Eligibility Determination' },
@@ -19,7 +20,7 @@ function BeginJourney() {
 				<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main-journey">
 					<div className="">
 						{/* Top Header */}
-						<Header showprogress={false} total_steps={0} current_step={0} title="" subtitle="This app will give you a complete understanding <br/>of the following:"/>
+						<Header showprogress={false} total_steps={0} current_step={0} title="" subtitle="This app will give you a complete understanding of the following:"/>
 						{/*Content Area*/}
 						<div className="p-3">
 							<div className="mb-4">
