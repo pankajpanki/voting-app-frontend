@@ -1,0 +1,967 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+.content-area-main {
+	background: linear-gradient(180deg, #0A0F1F 8.91%, #F2F2F2 40%, #E9E9E9 100%);
+}
+.content-area-main-home {
+	background: linear-gradient(180deg, #0A0F1F 18.91%, #FFFFFF 50%,  #FFFFFF 100%);
+	border: 0.01rem solid #E9E9E9;
+}
+.content-area-main-journey {
+	background: linear-gradient(180deg, #0A0F1F 4.91%, #F2F2F2 20%,  #E9E9E9 100%);
+}
+.content-area {
+	padding: 15px;
+}
+.home-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: var(--HeadlineSmallLineHeight);
+	letter-spacing: var(--HeadlineSmallTracking);
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.home-sub-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 22.4px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.home-date-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.home-info-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.begin-info-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17.64px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #FFF;
+}
+.begin-card-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17.64px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.begin-card-image {
+	width: 57.53px;
+	height: 40.11px;
+	top: 172px;
+	left: 36px;
+	gap: 0px;
+	opacity: 0px;
+}
+.main-steps-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #FFF;
+}
+.main-steps-sub-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #FFF;
+}
+.vm-card-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 36px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.vm-info-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.vm-info-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.vm-detail-button {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.4000000059604645px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	border: 1px solid #FFC107;
+	border-radius: 100px;
+}
+.vm-detail-button:hover {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.4000000059604645px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	border: 1px solid #FFC107;
+	border-radius: 100px;
+}
+.vm-modal-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fps-info-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fps-info-subtitle {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fps-info-info {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.sc-tab-title{
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17.64px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.special-case-header {
+	font-family: Plus Jakarta Sans;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 30px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #FFF;
+}
+.find-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.find-check-list {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.find-info-p {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.find-option-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.find-doc-link {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	text-align: left;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: auto;
+	color: #FFC107;
+}
+.find-modal-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.find-modal-list-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17.64px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.accepted-id-div {
+	height: 220px;
+    overflow-y: auto;
+}
+.accepted-id-list {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.close-position-id {
+	margin-top: -37px !important;
+}
+.voting-method-content {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+/*******************************************************Accordion Css Start******************************************************************************/
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.4s ease;
+}
+.accordion-content.open {
+	overflow: visible;
+}
+.accordion-item {
+    border: 0px !important;
+	border-bottom: 1px solid #D4D4D4 !important;
+}
+/*******************************************************Accordion Css End******************************************************************************/
+/*******************************************************Question Css Start******************************************************************************/
+.question-card-custom {
+	width: 100% !important;
+	background-color: #FFF !important;
+	border-radius: 10px;
+	padding: 10px;
+}
+.question-card {
+    height: 250px;
+    padding: 2px;
+    background-color: #FDDCA9;
+    border-radius: 8px;
+}
+.question-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 30.24px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.question-count {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 15.12px;
+	text-align: right;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.question-option-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 500;
+	/*line-height: 16px;*/
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.question-option-active {
+	border: 2px solid #FFC107 !important;
+	border-radius: 10px;
+	padding: 10px;
+	height: 44px;
+}
+.question-option-inactive {
+	border: 1px solid #DBD2B7 !important;
+	border-radius: 10px;
+	padding: 10px;
+	height: 44px;
+}
+.question-no {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 500;
+	/*line-height: 16px;
+	text-align: left;*/
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #9E9C9C;
+}
+.question-no-active {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #1B1313;
+}
+.question-btn:hover {
+	background-color: #e69816 !important;
+	color: black !important;
+}
+/*******************************************************Question Css End******************************************************************************/
+.next-button {
+	border: none;
+	margin-top: 70px !important;
+	background-color: #FFC107 !important;
+	border-color: #F5A623 !important;
+	border-bottom: 8px solid #00000040 !important;
+    border-radius: 10px;
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 20px;
+	font-style: Nunito;
+	color: #1B1313;
+}
+.button-text {
+	font-family: Nunito;
+	font-size: 18px;
+	font-weight: 900;
+	line-height: 20px;
+	letter-spacing: 0.02em;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.v-m-check {
+    margin-right: 13px !important;
+    margin-top: 13px !important;
+}
+/********************************************************Voting Method Animation css start******************************************************/
+.flip-card {
+	position: relative;
+	width: 100%;
+	background-image: url('/public/assets/votting-method-background.png');
+	border-radius: 25px !important;
+	height: 200px !important;
+	transform-style: preserve-3d;
+	transition: transform 0.6s ease-in-out;
+	cursor: pointer;
+}
+.flip-card.flipped {
+	transform: rotateY(180deg);
+}
+.flip-card-front {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: 15px;
+}
+.flip-card-back {
+	position: absolute;
+	width: 100%;
+	max-height: 150px;
+    overflow-y: auto;
+	backface-visibility: hidden;
+	border-radius: 15px;
+}
+.flip-card-front {
+	z-index: 2;
+}
+.flip-card-back {
+	transform: rotateY(180deg);
+	padding: 12px;
+}
+/********************************************************Voting Method Animation css end******************************************************/
+
+/************************************************Modal CSS and Animation Start***********************************************************************/
+.modal.fade.show {
+	display: block !important;
+}
+.modal-dialog {
+	position: relative;
+	margin: auto;
+	transform: translateY(0);
+	animation: slideInFromBottom 0.4s ease-out;
+}
+.modal-overlay {
+	z-index: 1040;
+}
+.modal-content {
+	z-index: 1050;
+}
+.modal-content {
+	/* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+	width:inherit;
+	max-width:inherit; /* For Bootstrap 4 - to avoid the modal window stretching 
+	full width */
+	height:inherit;
+	/* To center horizontally */
+	margin: 0 auto;
+	pointer-events:all;
+}
+.vm-modal-close {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #FFF;
+	/*margin-top: 5px !important;*/
+}
+/* Default styles */
+.custom-modal-width {
+	max-width: 58%;
+}
+
+@keyframes slideInFromBottom {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+/************************************************Modal Css and Animation End***********************************************************************/
+/************************************************************************************Custom checkbox container******************************************************************************/
+.custom-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.checkbox-container input[type="checkbox"] {
+	display: none;
+}
+.checkbox-container .checkmark {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #DBD2B7;
+	border-radius: 5%;
+	background-color: transparent;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.checkbox-container .checkmark:hover {
+	border-color: grey;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+	background-color: #ffc60a;
+	border-color: #ffc60a;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 6px;
+	height: 12px;
+	border: solid black;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+.checkbox-container .checkmark-square {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #000000;
+	border-radius: 5%;
+	background-color: transparent;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.checkbox-container .checkmark-square:hover {
+	border-color: grey;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-square {
+	background-color: #ffc60a;
+	border-color: #ffc60a;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-square::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 6px;
+	height: 12px;
+	border: solid black;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+/***************************************************Round checkbox CSS Start*************************************************************/
+.checkbox-container .checkmark-round {
+	width: 20px;
+	height: 20px;
+	border: 2px solid lightgrey;
+	border-radius: 50%;
+	background-color: transparent;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.checkbox-container .checkmark-round:hover {
+	border-color: grey;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-round {
+	background-color: #ffc60a;
+	border-color: #ffc60a;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-round::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 6px;
+	height: 12px;
+	border: solid black;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg); 
+}
+/***************************************************Progress Bar********************************************************/
+.progress-bar-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	padding: 20px 0;
+	width: 100%;
+	margin-top: 39px !important;
+    margin-left: 29px !important;
+}
+.progress-step {
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex: 1;
+}
+.progress-line {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+	height: 3px;
+	background-color: #aaa;
+	z-index: 0;
+}
+.progress-line.active {
+	background-color: #ffc107 !important;
+}
+.progress-circle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 3px solid #aaa;
+	background-color: #343a40;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #aaa;
+	font-size: 18px;
+	z-index: 1;
+	position: relative;
+}
+.progress-circle.completed {
+	background-color: #ffc107;
+	border-color: #ffc107;
+	color: #1a1a2e;
+}
+.progress-circle.current {
+	border-color: #ffc107;
+	background-color: #495057;
+}
+.dot {
+	width: 12px;
+	height: 12px;
+	background-color: #ffc107;
+	border-radius: 50%;
+}
+.check-mark {
+	font-size: 18px;
+	font-weight: bold;
+}
+/***************************************************Home Page********************************************************/
+.map-container {
+	width: 100%;
+	margin: 0 auto;
+}
+.map-image {
+	display: block;
+	width: 100%;
+	height: 528px;
+}
+.bear-image {
+	position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    height: 323px;
+}
+/*******************************************************Find My Polling Station***************************************************/
+.player-wrapper {
+	width: 100%;
+	height: 336px;
+	border-radius: 0.375rem;
+	overflow: hidden;
+	position: relative;
+}
+.react-player {
+	border-radius: 0.375rem;
+	width: 100% !important;
+	height: 100% !important;
+}
+/***********************************************Bottom Modal*************************************************************************/
+.custom-modal-bottom {
+	max-width: 58%;
+	width: 100%;
+	height: auto;
+	margin: 0;
+}
+.modal-content-bottom {
+	border-radius: 1rem 1rem 0 0;
+}
+/* For tablet and larger devices (max-width 768px) */
+@media (max-width: 768px) {
+	.custom-modal-bottom {
+		max-width: 80%; /* The modal takes up 80% of the screen width */
+		left: 10%; /* Add some margin on both sides */
+	}
+}
+/* For mobile devices (max-width 576px) */
+@media (max-width: 576px) {
+	.custom-modal-bottom {
+		max-width: 90%; /* The modal takes up 90% of the screen width */
+		left: 5%; /* Add some margin on both sides */
+	}
+}
+/*********************************************************Feedback Style***************************************************************/
+.feedback-main-container {
+	margin-top: 50px;
+	width: 100%;
+}
+.feedback-custom-card {
+	position: relative;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background-color: #FFE28C;
+}
+.feedback-custom-card-top {
+	background-color: #FFE28C;
+	padding: 1rem;
+	font-weight: bold;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	z-index: 2;
+}
+.feedback-custom-card-content {
+	padding: 1rem;
+	background-color: #fff;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	margin-top: -16px;
+	z-index: 1;
+}
+.feedback-summery-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.feedback-summery-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	color: #1B1313;
+}
+.feedback-text {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.feedback-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.feedback-badge {
+	font-family: Plus Jakarta Sans;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+/***********************************************************No Content Found**********************************************************/
+.top-title {
+	font-size: 13rem;
+}
+/*****************************************************************Carousel CSS Start***************************************************/
+.carousel-item {
+	opacity: 0;
+	transform: translateX(0);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.carousel-item.active {
+	opacity: 1;
+}
+.slide-out-left {
+	transform: translateX(-100%);
+	opacity: 0;
+}
+.slide-out-right {
+	transform: translateX(100%);
+	opacity: 0;
+}
+.slide-in-left {
+	transform: translateX(0);
+	opacity: 1;
+}
+.slide-in-right {
+	transform: translateX(0);
+	opacity: 1;
+}
+.carousel-dots {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: none;
+	margin-left: 5px;
+}
+/*****************************************************************Carousel CSS End***************************************************/
+/*****************************************************************Slick Slider CSS Start***************************************************/
+.slick-next:before, .slick-prev:before {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #ffc107 !important;
+}
+/*****************************************************************Slick Slider CSS End***************************************************/
+/*****************************************************************Final Checklist CSS Start***************************************************/
+.final-checklist-background {
+	width: 32px;
+	height: 32px;
+	background-color: #1B1313;
+}
+.slider-image {
+	width: 132px;
+	height: 180px;
+}
+.fc-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fc-sub-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17.64px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fc-section-title {
+	font-family: Plus Jakarta Sans;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fc-section-sub-title{
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17.64px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fc-list-item {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+.fc-link {
+	font-family: Plus Jakarta Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: auto;
+	color: #5B5B5B;
+}
+.share-icon {
+	width: 40px;  /* Adjust the size as per your requirement */
+	height: 40px;
+}
+
+@media (max-width: 576px) {
+	.share-icon {
+		width: 30px;  /* Smaller size on mobile */
+		height: 30px;
+	}
+	.gap-3 {
+		gap: 15px;  /* Adjust spacing between icons for mobile */
+	}
+}
+
+@media (max-width: 768px) {
+	.gap-3 {
+		gap: 20px;  /* Moderate spacing for tablets */
+	}
+}
+/*****************************************************************Final Checklist CSS End***************************************************/
+
+/*********************************************************Responsive CSS*************************************************************/
+/* For smaller screens (e.g., mobile devices), make the modal take up more of the screen */
+@media (max-width: 768px) {
+	.custom-modal-width {
+		width: 99%;
+		max-width: none;
+		margin-left: 2px;
+	}
+	.progress-bar-container {
+		margin-left: 15px !important;
+	}
+	.custom-modal-bottom {
+		max-width: 100%;
+	}
+}
+/* For extra small screens, you may want to adjust even further */
+@media (max-width: 480px) {
+	.custom-modal-width {
+		width: 100%;
+		max-width: none;
+	}
+	.progress-bar-container {
+		margin-left: 7px !important;
+	}
+	.custom-modal-bottom {
+		max-width: 100%;
+	}
+}
