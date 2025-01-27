@@ -105,9 +105,9 @@ const VotingFunFacts = () => {
 	
 	const addItemToCheckList = () => {
 		setChecklistButtonText("SAVING...");
-		currentquestions.map((item) =>{
-			if (!checkListFunFact.includes(item.id)) {
-				addOrUpdateFunFactCheckList(item.id); 
+		selectedFunFact.map((item) =>{
+			if (!checkListFunFact.includes(item)) {
+				addOrUpdateFunFactCheckList(item); 
 			}
 		})
 		
@@ -119,6 +119,8 @@ const VotingFunFacts = () => {
 	}
 	
 	const checkItemInCheckList = (id: string) => {
+		//console.log('checkListFunFact', checkListFunFact)
+		//console.log('checkItemInCheckList', checkListFunFact.includes(id))
 		if (checkListFunFact.includes(id)) {
 			return true;
 		}
@@ -131,7 +133,7 @@ const VotingFunFacts = () => {
 				<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main">
 					<div className="content-area">
 						{/* Top Header */}
-						<Header showprogress={false} total_steps={6} current_step={5} title="Election Fun Facts" subtitle=""/>
+						<Header showprogress={false} total_steps={6} current_step={5} title="Election Fun Facts" subtitle="Long press on one of the card to select"/>
 						{/* Content Area */}
 						<div className="">
 							{loading ? (

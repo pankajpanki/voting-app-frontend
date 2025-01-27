@@ -145,11 +145,11 @@ function PDFCheckList() {
 	return (
 		<main className="container">
 			<div className="row justify-content-center">
-				<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main">
-					<div className="text-center">
-						<button onClick={() => toPDF()}>Download PDF</button>
-					</div>
-					<div className="content-area" ref={targetRef}>
+				<div className="text-center">
+					<button onClick={() => toPDF()}>Download PDF</button>
+				</div>
+				<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main" ref={targetRef}>
+					<div className="content-area text-center">
 						{/* Top Header */}
 						<Header showprogress={false} total_steps={0} current_step={0} title="Civic Engagement Advocate"/>
 						{/* Content Area */}
@@ -284,24 +284,28 @@ function PDFCheckList() {
 										</div>
 									</div>
 									<hr />
-									<div>
-										<h4 className="mt-4 mb-3 fc-section-title">Fun Facts Recap</h4>
-										<p className="fc-section-sub-title">Did you know?</p>
-										{ffloading ? (
-											<Loader />
-										) : (
-											<div className="list-unstyled mb-3">
-												{selectedquestions.map((item, index) => (
-													<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
-														<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
-															<img src="/assets/question-icon.png" width='22px' height='22px' alt="" />
-														</div> 
-														<p className="ms-3 mb-0">{item.question}</p>
-													</div>
-												))}
-											</div>
-										)}
-									</div>										
+									{!ffloading && selectedquestions.length > 0 ? (
+										<div>
+											<h4 className="mt-4 mb-3 fc-section-title">Fun Facts Recap</h4>
+											<p className="fc-section-sub-title">Did you know?</p>
+											{ffloading ? (
+												<Loader />
+											) : (
+												<div className="list-unstyled mb-3">
+													{selectedquestions.map((item, index) => (
+														<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
+															<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
+																<img src="/assets/question-icon.png" width='22px' height='22px' alt="" />
+															</div> 
+															<p className="ms-3 mb-0">{item.question}</p>
+														</div>
+													))}
+												</div>
+											)}
+										</div>
+									) : (
+										null
+									)}										
 								</div>
 							</div>
 						</div>
