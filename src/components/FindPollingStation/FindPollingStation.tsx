@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { Dot } from 'lucide-react';
+import { Dot, CircleAlert } from 'lucide-react';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import ReactPlayer from 'react-player';
 import { Header } from '../Common/Header';
 import useVotingStore from '../../redux/store';
@@ -42,7 +44,7 @@ function FindPollingStation() {
 							<div className="row px-3 rounded p-1">
 								<div className="col-12">
 									<h6 className="mt-3 mb-3 fps-info-title">Introduction</h6>
-									<ul className="list-unstyled mb-5">
+									<ul className="list-unstyled mb-3">
 										<li className="ms-3 mb-2 fps-info-info">
 											<Dot /> Where do you vote? Finding your polling station will be quick and easy!
 										</li>
@@ -50,7 +52,7 @@ function FindPollingStation() {
 											<Dot /> We{"'"}ll guide you to the right resources to ensure you{"'"}re ready on Election Day.
 										</li>
 									</ul>
-									<p className="mt-1 fps-info-subtitle">Do you want to learn about voting when a voter is</p>
+									<p className="fps-info-subtitle">Do you want to learn about voting when a voter is</p>
 								</div>
 							</div>
 						</div>
@@ -58,6 +60,24 @@ function FindPollingStation() {
 							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/polling-special-cases")}>
 								CLICK TO LEARN MORE
 							</button>
+						</div>
+						<div className="p-1 mt-3">
+							<OverlayTrigger
+								placement="top"
+								delay={{ hide: 450, show: 300 }}
+								overlay={(props) => (
+									<Tooltip {...props} className="tooltip-disclaimer">
+										<>
+											<h4 className="disclaimer-title">Why Not Include the Search Here?</h4>
+											<p className="disclaimer-info">This game does NOT collect personal information! Instead, we’ll guide you to Elections Canada’s official website to find your polling station. For convenience, the link will also be included in your final checklist!</p>
+										</>
+								  </Tooltip>
+								)}
+							>
+								<div className="disclaimer">
+									Disclaimer <CircleAlert size={20} className="ms-1"/>
+								</div>
+							</OverlayTrigger>
 						</div>
 					</div>
 				</div>

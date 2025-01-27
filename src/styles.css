@@ -300,6 +300,22 @@
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
 }
+/*******************************************************Header Custom Tooltip Css Start******************************************************************************/
+.tooltip.header-tooltip .tooltip-inner {
+	background-color: #FFC107 !important;
+	color: #000 !important;
+	border-radius: 8px;
+	padding: 10px;
+}
+
+.header-tooltip {
+  --bs-tooltip-bg: #FFC107; /* Tooltip background color */
+}
+
+.header-tooltip .tooltip-arrow::before {
+  border-color: transparent transparent #FFC107 transparent !important;
+}
+/*******************************************************Header Custom Tooltip Css End******************************************************************************/
 /*******************************************************Accordion Css Start******************************************************************************/
 .accordion-content {
 	max-height: 0;
@@ -602,6 +618,36 @@
 	border-width: 0 2px 2px 0;
 	transform: translate(-50%, -50%) rotate(45deg); 
 }
+/*********Tab Checkbox*******************/
+.checkbox-container .checkmark-round-tab {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #D6D6D6;
+	border-radius: 50%;
+	background-color: #D6D6D6;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.checkbox-container .checkmark-round-tab:hover {
+	border-color: #D6D6D6;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-round-tab {
+	background-color: #ffc60a;
+	border-color: #ffc60a;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkmark-round-tab::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 6px;
+	height: 12px;
+	border: solid black;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg); 
+}
 /***************************************************Progress Bar********************************************************/
 .progress-bar-container {
 	display: flex;
@@ -697,6 +743,37 @@
 	width: 100% !important;
 	height: 100% !important;
 }
+.disclaimer {
+	font-family: Plus Jakarta Sans;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: -0.16500000655651093px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	cursor: pointer;
+}
+.disclaimer-title {
+	font-family: Plus Jakarta Sans;
+	font-size: var(--sds-typography-body-size-medium);
+	font-weight: 600;
+	line-height: 22.4px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+
+}
+.disclaimer-info {
+	font-family: Plus Jakarta Sans;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16.8px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+
 /***********************************************Bottom Modal*************************************************************************/
 .custom-modal-bottom {
 	max-width: 58%;

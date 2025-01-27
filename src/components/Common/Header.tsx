@@ -1,5 +1,7 @@
 import { useNavigate} from "react-router-dom";
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, CircleAlert } from 'lucide-react';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import { ProgresWizard } from './ProgresWizard';
 
 interface HeaderProps {
@@ -8,9 +10,10 @@ interface HeaderProps {
 	current_step: number;
 	title: string;
 	subtitle?: string;
+	disclaimer?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, current_step, title, subtitle = "" }) => {
+export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, current_step, title, subtitle = "", disclaimer="" }) => {
 	let navigate = useNavigate();
 	return (
 		<div className="">
@@ -23,7 +26,23 @@ export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, curre
 					<span role="button" onClick={() => navigate(-1)} className="">
 						<ArrowLeft color="white" size={24} />
 					</span>
-					{title && <h4 className="main-steps-title mb-0 text-center w-100">{title}</h4>}
+					{title && (
+						<h4 className="main-steps-title mb-0 text-center w-100">{title} 
+							{disclaimer && (
+								<OverlayTrigger
+									placement="bottom"
+									delay={{ hide: 450, show: 300 }}
+									overlay={(props) => (
+										<Tooltip {...props} className="header-tooltip">
+												{disclaimer}
+										</Tooltip>
+									)}
+								>
+									<CircleAlert size={20} className="ms-1"/>
+								</OverlayTrigger>
+							)}
+						</h4>
+					)}
 				  </div>
 				</div>
 				<div className="text-center">

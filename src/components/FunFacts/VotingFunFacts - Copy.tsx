@@ -18,7 +18,6 @@ const VotingFunFacts = () => {
 	const navigate = useNavigate();
 	const { selectedFunFact, viewedFunFact, addOrUpdateSelectedFunFact, addOrUpdateViewedFunFact, funFactShowMore, addFunFactShowMore, checkListFunFact, addOrUpdateFunFactCheckList } = useVotingStore();
 	const [currentIndex, setCurrentIndex] = useState<string>(''); // To track the currently flipped card
-	const [checklistbuttontext, setChecklistButtonText] = useState<string>('SAVE FACTS TO THE CHECKLIST'); // To track the currently flipped card
 	const [questions, setQuestions] = useState<FunFactsQuestion[]>([]);
 	const [currentquestions, setCurrentQuestions] = useState<FunFactsQuestion[]>([]);
 	const [pendingquestions, setPendingQuestions] = useState<FunFactsQuestion[]>([]);
@@ -104,18 +103,11 @@ const VotingFunFacts = () => {
 	};
 	
 	const addItemToCheckList = () => {
-		setChecklistButtonText("SAVING...");
 		currentquestions.map((item) =>{
 			if (!checkListFunFact.includes(item.id)) {
 				addOrUpdateFunFactCheckList(item.id); 
 			}
 		})
-		
-		setChecklistButtonText("SAVED !");
-		
-		setTimeout(() => {
-			setChecklistButtonText("SAVE FACTS TO THE CHECKLIST");
-		}, 2000);
 	}
 	
 	const checkItemInCheckList = (id: string) => {
@@ -144,39 +136,31 @@ const VotingFunFacts = () => {
 										<>
 											{currentquestions.map((item) => (
 												<div key={item.id} style={{ perspective: "1000px" }}>
-													<div className={`card mb-3 border-0 flip-card ${currentIndex === item.id ? 'flipped' : ''}`} style={{ backgroundColor: checkItemInCheckList(item.id) ? '#FFF9E9' : '' }}>
-														<div className="flip-card-front" data-item-id={item.id} {...longPressEvents}>
-															{selectedFunFact.includes(item.id) ? (
-																<div className="d-flex justify-content-end v-m-check">
-																	<div className="custom-checkbox">
-																		<label className="checkbox-container">
-																			<input type="checkbox" checked={true} readOnly={true}/>
-																			<span className="checkmark-round-tab"></span>
-																		</label>
-																	</div>
-																</div>
-															) : (
-																<div className="d-flex justify-content-end v-m-check">
-																	<div className="custom-checkbox">
-																		<label className="checkbox-container">
-																			<input type="checkbox" checked={false} readOnly={true}/>
-																			<span className="checkmark-round-tab"></span>
-																		</label>
-																	</div>
-																</div>
-															)}
-															<div className={`d-flex flex-column align-items-center justify-content-center ${selectedFunFact.includes(item.id) ? 'mt-4' : 'mt-5'}`}>
-																<h6 className="vm-card-title mt-2 mb-0">{item.question}</h6>
-															</div>
-														</div>
-														<div className="flip-card-back" onClick={() => setCurrentIndex('')}>
-															<div>
-																<div className="mt-4 d-flex align-items-center justify-content-center">
-																	<h6 className="vm-card-title mt-2 mb-0">{item.answer}</h6>
+												  <div className={`card mb-3 border-0 flip-card ${currentIndex === item.id ? 'flipped' : ''}`} style={{ backgroundColor: checkItemInCheckList(item.id) ? '#FFF9E9' : '' }}>
+													<div className="flip-card-front" data-item-id={item.id} {...longPressEvents}>
+														{selectedFunFact.includes(item.id) ? (
+															<div className="d-flex justify-content-end v-m-check">
+																<div style={{ color: "#FFC107" }}>
+																	<CircleCheck color={'#ffc107'} size={24} />
 																</div>
 															</div>
-														</div>
+														) : (
+															<div className="d-flex justify-content-end v-m-check">
+																<Dot strokeWidth={22} color="#DCDCDC"/>
+															</div>
+														)}
+													  <div className={`d-flex flex-column align-items-center justify-content-center ${selectedFunFact.includes(item.id) ? 'mt-4' : 'mt-5'}`}>
+														<h6 className="vm-card-title mt-2 mb-0">{item.question}</h6>
+													  </div>
 													</div>
+													<div className="flip-card-back" onClick={() => setCurrentIndex('')}>
+													  <div>
+														<div className="mt-4 d-flex align-items-center justify-content-center">
+														  <h6 className="vm-card-title mt-2 mb-0">{item.answer}</h6>
+														</div>
+													  </div>
+													</div>
+												  </div>
 												</div>
 											))}
 										</>
@@ -196,7 +180,7 @@ const VotingFunFacts = () => {
 									)}
 									<div className="p-1 mt-3">
 										<button className="btn w-100 py-3 border-secondary rounded-4 button-text" onClick={() => addItemToCheckList()} style={{ border: '2px solid #1B1313' }}>
-											{checklistbuttontext}
+											SAVE FACTS TO THE CHECKLIST
 										</button>
 									</div>
 									<div className="p-1">

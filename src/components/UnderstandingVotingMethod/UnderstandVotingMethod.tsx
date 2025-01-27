@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
-import { CircleCheck } from 'lucide-react';
 import { Header } from '../Common/Header';
 import { VotingModal } from './VotingModal';
 import { Loader } from '../Common/Loader';
@@ -91,7 +90,7 @@ const UnderstandVotingMethod = () => {
 					<div className="col-12 col-md-8 col-lg-6 min-vh-100 content-area-main">
 						<div className="content-area">
 							{/* Top Header */}
-							<Header showprogress={true} total_steps={6} current_step={2} title="Understanding Voting Methods" subtitle = "Explore voting options by flipping the cards. Select the method you&apos;re interested in—it&apos;s quick and easy!"/>
+							<Header showprogress={true} total_steps={6} current_step={2} title="Understanding Voting Methods" subtitle="Explore voting options by flipping the cards. Select the method you&apos;re interested in—it&apos;s quick and easy!" disclaimer="These are the modules that need to be completed"/>
 							{/* Content Area */}
 							<div className="">
 								{loading ? (
@@ -107,8 +106,12 @@ const UnderstandVotingMethod = () => {
 													<div className="flip-card-front">
 														{selectedUVM.includes(option.id) && (
 															<div className="d-flex justify-content-end v-m-check">
-																<span></span>
-																<CircleCheck color={'#ffc107'} size={24}/>
+																<div className="custom-checkbox">
+																	<label className="checkbox-container">
+																		<input type="checkbox" checked={true} readOnly={true}/>
+																		<span className="checkmark-round-tab"></span>
+																	</label>
+																</div>
 															</div>
 														)}
 														<div className={`d-flex flex-column align-items-center justify-content-center" ${selectedUVM.includes(option.id) ? 'mt-4' : 'mt-5'}`} onClick={() => toggleFlip(option.id)}>
