@@ -43,21 +43,18 @@ function FindPollingStation() {
 						<div className="card mt-2">
 							<div className="row px-3 rounded p-1">
 								<div className="col-12">
-									<h6 className="mt-3 mb-3 fps-info-title">Introduction</h6>
-									<ul className="list-unstyled mb-3">
-										<li className="ms-3 mb-2 fps-info-info">
-											<Dot /> Where do you vote? Finding your polling station will be quick and easy!
-										</li>
-										<li className="ms-3 mb-2 fps-info-info">
-											<Dot /> We{"'"}ll guide you to the right resources to ensure you{"'"}re ready on Election Day.
-										</li>
-									</ul>
-									<p className="fps-info-subtitle">Do you want to learn about voting when a voter is</p>
+									<h6 className="mt-3 mb-3 fps-info-title">Where do you vote? Finding your polling station will be quick and easy!</h6>
+									<p className="find-info ms-3">We{"'"}ll guide you to the right resources to ensure you{"'"}re ready on Election Day.</p>
 								</div>
 							</div>
 						</div>
+						<div className="p-1" style={{ marginTop: '70px' }}>
+							<div className="button-text" >
+								<p className="find-bottom-info">Do you want to learn about voting when a voter has special cases?</p>
+							</div>
+						</div>
 						<div className="p-1">
-							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/polling-special-cases")}>
+							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/polling-special-cases")} style={{ marginTop: '0px' }}>
 								CLICK TO LEARN MORE
 							</button>
 						</div>
