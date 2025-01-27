@@ -434,6 +434,18 @@
     margin-right: 13px !important;
     margin-top: 13px !important;
 }
+.next-button-find-station {
+	border: none;
+	background-color: #FFC107 !important;
+	border-color: #F5A623 !important;
+	border-bottom: 8px solid #00000040 !important;
+    border-radius: 10px;
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 20px;
+	font-style: Nunito;
+	color: #1B1313;
+}
 /********************************************************Voting Method Animation css start******************************************************/
 .flip-card {
 	position: relative;

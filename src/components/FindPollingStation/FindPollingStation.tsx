@@ -54,7 +54,7 @@ function FindPollingStation() {
 							</div>
 						</div>
 						<div className="p-1">
-							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/polling-special-cases")} style={{ marginTop: '0px' }}>
+							<button className="next-button-find-station btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/polling-special-cases")} style={{ marginTop: '0px' }}>
 								CLICK TO LEARN MORE
 							</button>
 						</div>
