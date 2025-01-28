@@ -45,11 +45,12 @@ const VotingFunFacts = () => {
 
 	const handleCheckboxClick = (event: React.MouseEvent<HTMLInputElement>, itemId: string) => {
 		event.stopPropagation(); // Prevent the event from propagating to the parent
-		console.log('checkbox item id', itemId)
+		//console.log('checkbox item id', itemId)
 		if (!selectedFunFact.includes(itemId)) {
 			addOrUpdateSelectedFunFact('add', itemId);
 		}else{
 			addOrUpdateSelectedFunFact('remove', itemId);
+			addOrUpdateFunFactCheckList('remove', itemId); 
 		}
 	};
 
@@ -109,18 +110,20 @@ const VotingFunFacts = () => {
 	};
 	
 	const addItemToCheckList = () => {
-		setChecklistButtonText("SAVING...");
-		selectedFunFact.map((item) =>{
-			if (!checkListFunFact.includes(item)) {
-				addOrUpdateFunFactCheckList(item); 
-			}
-		})
-		
-		setChecklistButtonText("SAVED !");
-		
-		setTimeout(() => {
-			setChecklistButtonText("SAVE FACTS TO THE CHECKLIST");
-		}, 2000);
+		if(selectedFunFact.length > 0){
+			setChecklistButtonText("SAVING...");
+			selectedFunFact.map((item) =>{
+				if (!checkListFunFact.includes(item)) {
+					addOrUpdateFunFactCheckList('add', item); 
+				}
+			})
+			
+			setChecklistButtonText("SAVED !");
+			
+			setTimeout(() => {
+				setChecklistButtonText("SAVE FACTS TO THE CHECKLIST");
+			}, 2000);
+		}
 	}
 	
 	const checkItemInCheckList = (id: string) => {

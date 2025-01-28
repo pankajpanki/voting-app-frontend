@@ -87,19 +87,23 @@ function Feedback() {
 		for (let i = 0; i < feedbacks.length; i++) {
 			const feedback = feedbacks[i];
 			if(feedback.earned_by === 'viewed_every_question' && viewedFunFact.length === questions.length){
+				console.log('viewed_every_question');
 				setUserback(feedback);
 			}else if(feedback.earned_by === 'one_clicked' && selectedFunFact.length > 0){
+				console.log('one_clicked');
 				setUserback(feedback);
 			}else if(feedback.earned_by === 'add_to_ckecklist_once' && checkListFunFact.length > 0){
+				console.log('add_to_ckecklist_once');
 				setUserback(feedback);
 			}else if(feedback.earned_by === 'show_more_selected_once' && funFactShowMore){
+				console.log('show_more_selected_once');
 				setUserback(feedback);
 			}
 		}
 		// Default to the last feedback
-		var default_feedback = feedbacks[feedbacks.length - 1];
+		//var default_feedback = feedbacks[feedbacks.length - 1];
 		//console.log('default_feedback', default_feedback);
-		setUserback(default_feedback);
+		//setUserback(default_feedback);
 	};
   
 	return (
@@ -120,13 +124,25 @@ function Feedback() {
 											<div className="no-content-found"><p className="">No content found. Please try again later.</p></div>
 									) : (
 										<div className="text-center p-2">
-											<div className="mb-2">
-												<div className="d-inline-block">
-													<div className="p-2">
-														<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+											<>
+											{userback.badge !== '' ? (
+												<div className="mb-2">
+													<div className="d-inline-block">
+														<div className="p-2">
+															<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+														</div>
 													</div>
 												</div>
-											</div>
+											) : (
+												<div className="mb-2">
+													<div className="d-inline-block">
+														<div className="p-2">
+															<p>No Feedback</p>
+														</div>
+													</div>
+												</div>
+											)}	
+											</>
 											<h4 className="mb-3 feedback-badge">{userback?.badge}</h4>
 											<p className="mb-2 feedback-text">{userback?.feedback}</p>
 										</div>

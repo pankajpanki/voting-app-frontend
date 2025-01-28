@@ -72,7 +72,7 @@ function SpecialCases() {
 		setTimeout(() => {
 			setChecklistAdded(false);
 		}, 5000);
-		navigate("/special-cases-feedback");
+		navigate("/id-check-list");
 		//setModalOpen(true);
 	}
   
@@ -123,7 +123,7 @@ function SpecialCases() {
 								<div className="row p-3 mt-auto">
 									<div className="col-12">
 										<button className="next-button btn fw-bold w-100 mb-3 py-3 button-text" onClick={() => addToMyCheckList()}>ADD TO MY CHECKLIST</button>
-										<button className="btn btn-link text-dark fw-bold w-100 button-text" onClick={() => navigate("/special-cases-feedback")}>SKIP FOR NOW</button>
+										<button className="btn btn-link text-dark fw-bold w-100 button-text" onClick={() => navigate("/id-check-list")}>SKIP FOR NOW</button>
 									</div>
 								</div>
 							)}	

@@ -25,7 +25,7 @@ interface UserFeedbackInt {
 
 function Feedback() {
 	const navigate = useNavigate();
-	const { selectedUVM } = useVotingStore();
+	const { selectedUVM, viewedUVM } = useVotingStore();
 	const [votingOptions, setVotingOptions] = useState<VotingOption[]>([]);
 	const [userback, setUserback]   = useState<UserFeedbackInt>({ badge: '', feedback: '', earned_by: '' });
 	const [loading, setLoading]     = useState<boolean>(true);
@@ -77,7 +77,7 @@ function Feedback() {
 			// Cast response data to an array of UserFeedbackInt objects
 			const feedbacks: UserFeedbackInt[] = response.data.data;
 			// Check if selectedUVM is empty
-			if (selectedUVM.length === 0) {
+			if (selectedUVM.length === 0 && viewedUVM.length === feedbacks.length) {
 				if (feedbacks.length > 0) {
 					// Correctly filter based on 'earned_by'
 					let filtered_data = feedbacks.filter((item: UserFeedbackInt) => item.earned_by === 'all_open');
@@ -121,17 +121,29 @@ function Feedback() {
 								<div className="feedback-custom-card-content">
 									{feedbackloading ? (
 										<Loader />
-									) : userback.badge === '' ? (
+									) : votingOptions.length === 0 ? (
 											<div className="no-content-found"><p className="">No content found. Please try again later.</p></div>
 									) : (
 										<div className="text-center p-2">
-											<div className="mb-2">
-												<div className="d-inline-block">
-													<div className="p-2">
-														<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+											<>
+												{userback.badge !== '' ? (
+													<div className="mb-2">
+														<div className="d-inline-block">
+															<div className="p-2">
+																<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
+												) : (
+													<div className="mb-2">
+														<div className="d-inline-block">
+															<div className="p-2">
+																<p>No Feedback</p>
+															</div>
+														</div>
+													</div>
+												)}
+											</>
 											<h4 className="feedback-badge mb-4">{userback.badge}</h4>
 											<p className="feedback-text mb-2">{userback.feedback}</p>
 										</div>
@@ -150,7 +162,7 @@ function Feedback() {
 									) : (
 										<div className="p-2">
 											<div className="p-2">
-												<p className="feedback-summery-title">You’ve selected the method(s) you’re considering:</p>
+											{filteredVotingOptions.length > 0 && (<p className="feedback-summery-title">You’ve selected the method(s) you’re considering:</p>)}
 												<ul className="list-unstyled mb-4">
 													{filteredVotingOptions.map((method, index) => (
 													  <li key={index} className="feedback-summery-text mb-2 ms-3">

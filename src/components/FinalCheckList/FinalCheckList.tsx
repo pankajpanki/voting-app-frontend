@@ -204,24 +204,35 @@ function FinalCheckList() {
 									<div>
 										<h4 className="mt-4 mb-3 fc-section-title">ID Requirements</h4>
 										<p className="fc-section-sub-title">Make sure you bring the right ID:</p>
-										<div>
+										<div className="mt-3">
 											<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
 												<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
 													<img src="/assets/govt-issue-id.png" width='22px' height='22px' alt="" />
-												</div> 
-												<p className="ms-3 mb-0">Government-issued photo ID with your name and address</p>
+												</div>
+												<div>	
+													<strong className="ms-3 mb-0">Option 1</strong>
+													<p className="ms-3 mb-0">Government-issued photo ID with your name and address</p>
+												</div>
 											</div>
+											<p className="text-center" style={{ marginTop: '0px', marginBottom: '0px' }}>OR</p>
 											<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
 												<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
 													<img src="/assets/two-piece-id-icon.png" width='22px' height='22px' alt="" />
 												</div> 
-												<p className="ms-3 mb-0">Two pieces of ID showing your name, one with your address</p>
+												<div>
+													<strong className="ms-3 mb-0">Option 2</strong>
+													<p className="ms-3 mb-0">Two pieces of ID showing your name, one with your address</p>
+												</div>
 											</div>
+											<p className="text-center" style={{ marginTop: '0px', marginBottom: '0px' }}>OR</p>
 											<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
 												<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
 													<img src="/assets/no-id-icon.png" width='22px' height='22px' alt="" />
 												</div> 
-												<p className="ms-3 mb-0">No ID? Ask someone you know who is voting at the same place to vouch for you.</p>
+												<div>
+													<strong className="ms-3 mb-0">Option 3</strong>
+													<p className="ms-3 mb-0">No ID? Ask someone you know who is voting at the same place to vouch for you.</p>
+												</div>
 											</div>
 										</div>
 									</div>

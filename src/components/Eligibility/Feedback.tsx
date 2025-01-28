@@ -132,13 +132,25 @@ function Feedback() {
 										<div className="no-content-found"><p className="">No content found. Please try again later.</p></div>
 									) : (
 										<div className="text-center p-2">
-											<div className="mb-2">
-												<div className="d-inline-block">
-													<div className="p-2">
-														<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+											<>
+												{userback.badge !== '' ? (
+													<div className="mb-2">
+														<div className="d-inline-block">
+															<div className="p-2">
+																<img src="/assets/silver-badge.png" alt="Silver Badge" height="210px" width="172px"/>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
+												) : (
+													<div className="mb-2">
+														<div className="d-inline-block">
+															<div className="p-2">
+																<p>No Feedback</p>
+															</div>
+														</div>
+													</div>
+												)}
+											</>
 											<h4 className="mb-3 feedback-badge">{userback?.badge}</h4>
 											<p className="mb-2 feedback-text">{userback?.feedback}</p>
 											<div className="p-1">

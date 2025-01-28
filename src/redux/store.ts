@@ -22,7 +22,7 @@ interface VotingState {
   addOrUpdateSelectedFunFact: (type: string, item: string) => void; // add or update { selected } Understand Voting Method 
   addOrUpdateViewedFunFact: (item: string) => void; // add or update { viewed } Understand Voting Method
   addFunFactShowMore: (value: boolean) => void; // add or update { show more } Fun Fact show more
-  addOrUpdateFunFactCheckList: (item: string) => void; // add item to Fun Fact CheckList
+  addOrUpdateFunFactCheckList: (type: string, item: string) => void; // add item to Fun Fact CheckList
 }
 
 const useVotingStore = create<VotingState>()((set) => ({
@@ -162,11 +162,17 @@ const useVotingStore = create<VotingState>()((set) => ({
 		})
 	),
 	// Add or update Fun Fact To Check List
-	addOrUpdateFunFactCheckList: (item) =>
+	addOrUpdateFunFactCheckList: (type: string, item) =>
 		set((state) => {
-			if (!state.checkListFunFact.includes(item)) {
+			if(type === 'add'){
+				if (!state.checkListFunFact.includes(item)) {
+					return {
+					  checkListFunFact: [...state.checkListFunFact, item], // Add item if it doesn't exist
+					};
+				}
+			}else{
 				return {
-				  checkListFunFact: [...state.checkListFunFact, item], // Add item if it doesn't exist
+					checkListFunFact: state.checkListFunFact.filter((ffc) => ffc !== item), // Remove item if it exists
 				};
 			}
 			return state; // Return state unchanged if item already exists
