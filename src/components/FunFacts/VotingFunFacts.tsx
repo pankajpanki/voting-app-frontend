@@ -4,7 +4,6 @@ import { CircleCheck, ArrowRight, Dot } from 'lucide-react';
 import { Header } from '../Common/Header';
 import { Loader } from '../Common/Loader';
 import axiosInstance from "../../helper/axiosInstance";
-import useLongPress from "../../helper/useLongPress";
 import useVotingStore from '../../redux/store';
 
 // Define the structure of a Fun Fact object
@@ -25,28 +24,34 @@ const VotingFunFacts = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const hasFetchedData = useRef(false);
 
-	const onLongPress = (event: React.MouseEvent | React.TouchEvent) => {
-		console.log("Long press triggered!");
-		const itemId = (event.target as HTMLElement).getAttribute('data-item-id');
-		if (itemId && !selectedFunFact.includes(itemId)) {
-		  console.log('Long pressed item ID:', itemId);
-		  addOrUpdateSelectedFunFact(itemId); // Assuming this function expects a string as parameter
-		}
-	};
-
-	const onClick = (event: React.MouseEvent | React.TouchEvent) => {
-		console.log("Click triggered!");
+	const handleCardClick = (event: React.MouseEvent | React.TouchEvent) => {
+		//console.log("Click triggered!");
 		const itemId = (event.target as HTMLElement).getAttribute('data-item-id');
 		if (itemId) {
-			console.log('Clicked item ID:', itemId);
+			//console.log('Clicked item ID:', itemId);
 			setCurrentIndex(itemId); // Flip the clicked card
 			if (!viewedFunFact.includes(itemId)) {
+				playCurrencySound();
 				addOrUpdateViewedFunFact(itemId);  // Assuming this function expects a string as parameter
 			}
 		}
+		
 	};
+	//first time when a card is click then the coin sound is played
+    var playCurrencySound = () => {     
+        var audio = new Audio('/assets/coin-sound.mp3');
+        audio.play();
+    }
 
-	const longPressEvents = useLongPress(onLongPress, onClick, { delay: 500 });
+	const handleCheckboxClick = (event: React.MouseEvent<HTMLInputElement>, itemId: string) => {
+		event.stopPropagation(); // Prevent the event from propagating to the parent
+		console.log('checkbox item id', itemId)
+		if (!selectedFunFact.includes(itemId)) {
+			addOrUpdateSelectedFunFact('add', itemId);
+		}else{
+			addOrUpdateSelectedFunFact('remove', itemId);
+		}
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -147,27 +152,24 @@ const VotingFunFacts = () => {
 											{currentquestions.map((item) => (
 												<div key={item.id} style={{ perspective: "1000px" }}>
 													<div className={`card mb-3 border-0 flip-card ${currentIndex === item.id ? 'flipped' : ''}`} style={{ backgroundColor: checkItemInCheckList(item.id) ? '#FFF9E9' : '' }}>
-														<div className="flip-card-front" data-item-id={item.id} {...longPressEvents}>
-															{selectedFunFact.includes(item.id) ? (
-																<div className="d-flex justify-content-end v-m-check">
-																	<div className="custom-checkbox">
-																		<label className="checkbox-container">
-																			<input type="checkbox" checked={true} readOnly={true}/>
-																			<span className="checkmark-round-tab"></span>
-																		</label>
-																	</div>
+														<div className="flip-card-front" data-item-id={item.id} onClick={(e) => handleCardClick(e)}>
+															<div className="d-flex justify-content-end v-m-check">
+																<div className="custom-checkbox">
+																	<label className="checkbox-container">
+																		<input
+																			type="checkbox"
+																			checked={selectedFunFact.includes(item.id)}
+																			onMouseDown={(event) => event.stopPropagation()}
+																			onClick={(event) => {
+																				event.stopPropagation(); // Prevent this click from bubbling to the parent
+																				handleCheckboxClick(event, item.id);
+																			}}
+																		/>
+																		<span className="checkmark-round-tab"></span>
+																	</label>
 																</div>
-															) : (
-																<div className="d-flex justify-content-end v-m-check">
-																	<div className="custom-checkbox">
-																		<label className="checkbox-container">
-																			<input type="checkbox" checked={false} readOnly={true}/>
-																			<span className="checkmark-round-tab"></span>
-																		</label>
-																	</div>
-																</div>
-															)}
-															<div className={`d-flex flex-column align-items-center justify-content-center ${selectedFunFact.includes(item.id) ? 'mt-4' : 'mt-5'}`}>
+															</div>
+															<div className={`d-flex flex-column align-items-center justify-content-center mt-3`}>
 																<h6 className="vm-card-title mt-2 mb-0">{item.question}</h6>
 															</div>
 														</div>

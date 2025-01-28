@@ -275,7 +275,11 @@
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
 }
-.accepted-id-div {
+/*.accepted-id-div {
+	height: 220px;
+    overflow-y: auto;
+}*/
+.accordian-content {
 	height: 220px;
     overflow-y: auto;
 }
@@ -467,13 +471,21 @@
 	backface-visibility: hidden;
 	border-radius: 15px;
 }
-.flip-card-back {
+/*.flip-card-back {
 	position: absolute;
 	width: 100%;
 	max-height: 150px;
     overflow-y: auto;
 	backface-visibility: hidden;
 	border-radius: 15px;
+}*/
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    max-height: 200px; /* Restrict maximum visible height */
+    overflow-y: auto; /* Add vertical scroll when content exceeds max-height */
+    backface-visibility: hidden;
+    border-radius: 15px;
 }
 .flip-card-front {
 	z-index: 2;

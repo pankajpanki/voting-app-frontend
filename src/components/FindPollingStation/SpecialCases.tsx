@@ -72,7 +72,8 @@ function SpecialCases() {
 		setTimeout(() => {
 			setChecklistAdded(false);
 		}, 5000);
-		setModalOpen(true);
+		navigate("/special-cases-feedback");
+		//setModalOpen(true);
 	}
   
 	const setSelectedOption = (value: string) => {
@@ -122,7 +123,7 @@ function SpecialCases() {
 								<div className="row p-3 mt-auto">
 									<div className="col-12">
 										<button className="next-button btn fw-bold w-100 mb-3 py-3 button-text" onClick={() => addToMyCheckList()}>ADD TO MY CHECKLIST</button>
-										<button className="btn btn-link text-dark fw-bold w-100 button-text" onClick={() => navigate('/gamified-quiz')}>SKIP FOR NOW</button>
+										<button className="btn btn-link text-dark fw-bold w-100 button-text" onClick={() => navigate("/special-cases-feedback")}>SKIP FOR NOW</button>
 									</div>
 								</div>
 							)}	
@@ -130,7 +131,6 @@ function SpecialCases() {
 					</div>
 				</div>
 			</main>
-			<QuizConfirmModal isOpen={modal} onClose={setModalClose} setSelected={setSelectedOption}/>
 		</>	
 	);
 }

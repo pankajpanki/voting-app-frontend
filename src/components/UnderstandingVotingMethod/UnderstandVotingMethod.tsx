@@ -56,7 +56,7 @@ const UnderstandVotingMethod = () => {
 
 	const setSelectedOption = (value: string) => {
 		if(!selectedUVM.includes(value)){
-			addOrUpdateSelectedUVM(value);
+			addOrUpdateSelectedUVM('add', value);
 		}
 		setModalOpen(false);
 		setCurrentIndex('');
@@ -70,6 +70,16 @@ const UnderstandVotingMethod = () => {
 		setCurrentIndex(index); // Flip only the clicked card
 		if(!viewedUVM.includes(index)){
 			addOrUpdateViewedUVM(index);
+		}
+	};
+	
+	const handleCheckboxClick = (event: React.MouseEvent<HTMLInputElement>, itemId: string) => {
+		event.stopPropagation(); // Prevent the event from propagating to the parent
+		//console.log('checkbox item id', itemId)
+		if (!selectedUVM.includes(itemId)) {
+			addOrUpdateSelectedUVM('add', itemId);
+		}else{
+			addOrUpdateSelectedUVM('remove', itemId);
 		}
 	};
 	
@@ -104,17 +114,23 @@ const UnderstandVotingMethod = () => {
 												<div className={`card mb-3 border-0 flip-card ${currentIndex === option.id ? 'flipped' : ''}`}>
 													{/* Front of the card */}
 													<div className="flip-card-front">
-														{selectedUVM.includes(option.id) && (
-															<div className="d-flex justify-content-end v-m-check">
-																<div className="custom-checkbox">
-																	<label className="checkbox-container">
-																		<input type="checkbox" checked={true} readOnly={true}/>
-																		<span className="checkmark-round-tab"></span>
-																	</label>
-																</div>
+														<div className="d-flex justify-content-end v-m-check">
+															<div className="custom-checkbox">
+																<label className="checkbox-container">
+																	<input
+																		type="checkbox"
+																		checked={selectedUVM.includes(option.id)}
+																		onMouseDown={(event) => event.stopPropagation()}
+																		onClick={(event) => {
+																			event.stopPropagation(); // Prevent this click from bubbling to the parent
+																			handleCheckboxClick(event, option.id);
+																		}}
+																	/>
+																	<span className="checkmark-round-tab"></span>
+																</label>
 															</div>
-														)}
-														<div className={`d-flex flex-column align-items-center justify-content-center" ${selectedUVM.includes(option.id) ? 'mt-4' : 'mt-5'}`} onClick={() => toggleFlip(option.id)}>
+														</div>
+														<div className={`d-flex flex-column align-items-center justify-content-center mt-3`} onClick={() => toggleFlip(option.id)}>
 															<div className="rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#0A0F1F', width: '70px', height: '70px' }}>
 																<img src={option.image_url} alt={option.title} />
 															</div>
@@ -141,18 +157,25 @@ const UnderstandVotingMethod = () => {
 																<span className="vm-info-text mb-0">{option.requirements}</span>
 															</div>
 														</div>
-													  <button className="btn w-100 py-2 mt-2 vm-detail-button" onClick={() => setModalOpen(true)}>MORE DETAILS</button>
+														{option.content !== 'N/A' && (
+															<button className="btn w-100 py-2 mt-2 vm-detail-button" onClick={() => setModalOpen(true)}>MORE DETAILS</button>
+														)}
 													</div>
 												</div>
 											</div>
 										))}
-									  {(viewedUVM.length === votingOptions.length || selectedUVM.length > 0) && (
+										{/*{(viewedUVM.length === votingOptions.length || selectedUVM.length > 0) && (
 										<div className="p-1">
 											<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/understand-feedback")}>
 												Continue
 											</button>
 										</div>
-									  )}
+										)}*/}
+										<div className="p-1">
+											<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/understand-feedback")}>
+												Continue
+											</button>
+										</div>
 									</div>
 								)}
 							</div>

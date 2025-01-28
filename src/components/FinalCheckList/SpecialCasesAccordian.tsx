@@ -73,7 +73,7 @@ function SpecialCasesAccordian({
 						</div>
 					) : (
 						<div className="accordion-content" id={item.id} style={{ maxHeight: `${document.getElementById(item.id)?.scrollHeight}px`, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-							<div className="p-3">{parse(item.content)}</div>
+							<div className="p-3 accordian-content">{parse(item.content)}</div>
 						</div>
 					)}
 				</div>

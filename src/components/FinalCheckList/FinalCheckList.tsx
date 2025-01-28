@@ -259,14 +259,24 @@ function FinalCheckList() {
 												<Loader />
 											) : (
 												<div className="list-unstyled mb-3">
-													{selectedquestions.map((item, index) => (
-														<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
-															<div className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background">
-																<img src="/assets/question-icon.png" width='22px' height='22px' alt="" />
-															</div> 
-															<p className="ms-3 mb-0">{item.question}</p>
-														</div>
-													))}
+												  {selectedquestions.map((item, index) => (
+													<div className="mb-3 fps-info-info d-flex flex-row align-items-center">
+													  <div 
+														className="rounded-circle d-flex align-items-center justify-content-center final-checklist-background my-3"
+														style={{ minWidth: '32px', minHeight: '32px', width: '32px', height: '32px', overflow: 'hidden', flexShrink: 0 }} // Ensure the container stays at 40px
+													  >
+														<img 
+														  src="/assets/question-icon.png" 
+														  alt="Question Icon" 
+														  style={{ width: '22px', height: '22px', objectFit: 'contain' }} // Ensures image fits within the container
+														/>
+													  </div>
+													  <div className="ms-4">
+														<p className="mb-0"><strong>Question: </strong>{item.question}</p>
+														<p className="mb-0"><strong>Answer: </strong>{item.answer}</p>
+													  </div>
+													</div>
+												  ))}
 												</div>
 											)}
 										</div>

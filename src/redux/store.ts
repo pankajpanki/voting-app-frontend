@@ -13,13 +13,13 @@ interface VotingState {
   funFactShowMore: boolean; // Specify that fun facts has been show more
   checkListFunFact: string[]; // Specify that fun facts checklist is an array of strings
   addOrUpdateEligibility: (key: string, value: string) => void; // add or update eligibility
-  addOrUpdateSelectedUVM: (item: string) => void; // add or update { selected } Understand Voting Method 
+  addOrUpdateSelectedUVM: (type: string, item: string) => void; // add or update { selected } Understand Voting Method 
   addOrUpdateViewedUVM: (item: string) => void; // add or update { viewed } Understand Voting Method
   addOrUpdateSpecialCaseFAQ: (items: string[]) => void; // add or update { viewed } Understand Voting Method
   addOrUpdateGamifiedQuiz: (value: string, index?: number) => void; // add or update eligibility
   addOrUpdateVideoFullyWachted: (value: boolean) => void; // add or update Find My Polling Station Video Fully Watched
   addOrUpdateGamifiedQuizPlayed: (value: boolean) => void; // add or update Gamified Quiz Played
-  addOrUpdateSelectedFunFact: (item: string) => void; // add or update { selected } Understand Voting Method 
+  addOrUpdateSelectedFunFact: (type: string, item: string) => void; // add or update { selected } Understand Voting Method 
   addOrUpdateViewedFunFact: (item: string) => void; // add or update { viewed } Understand Voting Method
   addFunFactShowMore: (value: boolean) => void; // add or update { show more } Fun Fact show more
   addOrUpdateFunFactCheckList: (item: string) => void; // add item to Fun Fact CheckList
@@ -60,11 +60,17 @@ const useVotingStore = create<VotingState>()((set) => ({
 	  }
 	),
 		// Add or update selected UVM
-	addOrUpdateSelectedUVM: (item) =>
+	addOrUpdateSelectedUVM: (type, item) =>
 		set((state) => {
-			if (!state.selectedUVM.includes(item)) {
+			if(type === 'add'){
+				if (!state.selectedUVM.includes(item)) {
+					return {
+					  selectedUVM: [...state.selectedUVM, item], // Add item if it doesn't exist
+					};
+				}
+			}else{
 				return {
-				  selectedUVM: [...state.selectedUVM, item], // Add item if it doesn't exist
+					selectedUVM: state.selectedUVM.filter((uvm) => uvm !== item), // Remove item if it exists
 				};
 			}
 			return state; // Return state unchanged if item already exists
@@ -122,11 +128,17 @@ const useVotingStore = create<VotingState>()((set) => ({
 		})
 	),
 	// Add or update selected Fun Fact
-	addOrUpdateSelectedFunFact: (item) =>
+	addOrUpdateSelectedFunFact: (type, item) =>
 		set((state) => {
-			if (!state.selectedFunFact.includes(item)) {
+			if(type === 'add'){
+				if (!state.selectedFunFact.includes(item)) {
+					return {
+					  selectedFunFact: [...state.selectedFunFact, item], // Add item if it doesn't exist
+					};
+				}
+			}else{
 				return {
-				  selectedFunFact: [...state.selectedFunFact, item], // Add item if it doesn't exist
+					selectedFunFact: state.selectedFunFact.filter((ff) => ff !== item), // Remove item if it exists
 				};
 			}
 			return state; // Return state unchanged if item already exists
