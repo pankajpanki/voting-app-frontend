@@ -6,12 +6,14 @@ interface VotingState {
   viewedUVM: string[]; // Specify that understand Voting Method { viewed } is an array of strings
   specialcaseFAQ: string[]; // Specify that special case FAQ is an array of strings
   gamifiedQuiz: string[]; // Specify that Gamified Quiz is an array of strings
-  videoFullyWachted: boolean; // Specify that Gamified Quiz is an array of strings
+  videoFullyWachted: boolean; // Specify that Gamified Quiz is an array of string ssidebarShow, unfoldable
   gamifiedQuizPlayed: boolean; // Specify that Gamified Quiz is an array of strings
   selectedFunFact: string[]; // Specify that fun facts{ selected } is an array of strings
   viewedFunFact: string[]; // Specify that fun facts { viewed } is an array of strings
   funFactShowMore: boolean; // Specify that fun facts has been show more
   checkListFunFact: string[]; // Specify that fun facts checklist is an array of strings
+  sidebarShow: boolean; // Specify that admin sidebar is opened or not 
+  unfoldable: boolean; //  Specify that admin sidebar is opened or not
   addOrUpdateEligibility: (key: string, value: string) => void; // add or update eligibility
   addOrUpdateSelectedUVM: (type: string, item: string) => void; // add or update { selected } Understand Voting Method 
   addOrUpdateViewedUVM: (item: string) => void; // add or update { viewed } Understand Voting Method
@@ -36,6 +38,8 @@ const useVotingStore = create<VotingState>()((set) => ({
 	selectedFunFact: [],
 	viewedFunFact: [],
 	funFactShowMore: false,
+	sidebarShow: false,
+	unfoldable: false,
 	checkListFunFact: [],
 	addOrUpdateEligibility: (key: string, value: string) =>
 	  set((state) => {

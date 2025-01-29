@@ -19,6 +19,9 @@ import PageNotFound from "./components/PageNotFound";
 import FinalCheckList from "./components/FinalCheckList/FinalCheckList";
 import PDFCheckList from "./components/FinalCheckList/PDFCheckList";
 import CompleteFeedback from "./components/FinalCheckList/Feedback";
+//admin route
+import Login from "./components/admin/Login";
+import Dashboard from "./components/admin/Dashboard";
 
 function App() {
 	return (
@@ -41,6 +44,8 @@ function App() {
 					<Route path='/final-check-list' element={<FinalCheckList/>} />
 					<Route path='/complete-feedbck' element={<CompleteFeedback/>} />
 					<Route path='/save-as-pdf' element={<PDFCheckList/>} />
+					<Route path='/admin/login' element={<Login/>} />
+					<Route path='/admin/dashboard' element={<Dashboard/>} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</BrowserRouter >

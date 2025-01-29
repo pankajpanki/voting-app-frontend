@@ -42,7 +42,7 @@ axiosInstance.interceptors.request.use(
 		if (!config.params) {
 		  config.params = {};
 		}
-		config.params.timestamp = Date.now();
+		//config.params.timestamp = Date.now();
 
 		// Modify the request URL (e.g., add a prefix for API versioning)
 		config.url = `/${config.url}`;

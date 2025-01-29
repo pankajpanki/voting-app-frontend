@@ -84,9 +84,11 @@ function Feedback() {
   
 	/* Check eligibility based on selected answers and match against criteria */
 	const getFunFactFeedback = () => {
+		//console.log('viewedFunFact.length', viewedFunFact.length)
+		//console.log('questions.length', questions.length)
 		for (let i = 0; i < feedbacks.length; i++) {
 			const feedback = feedbacks[i];
-			if(feedback.earned_by === 'viewed_every_question' && viewedFunFact.length === questions.length){
+			if(feedback.earned_by === 'viewed_every_question' && (viewedFunFact.length === questions.length && questions.length > 0)){
 				console.log('viewed_every_question');
 				setUserback(feedback);
 			}else if(feedback.earned_by === 'one_clicked' && selectedFunFact.length > 0){

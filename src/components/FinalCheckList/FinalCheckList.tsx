@@ -297,11 +297,21 @@ function FinalCheckList() {
 								</div>
 							</div>
 						</div>
-						<div className="p-1">
-							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/complete-feedbck")}>
+						{/*<div className="p-1">
+							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/complete-feedbck")} style={{ marginBottom: '0px' }}>
 								NEXT
 							</button>
-							{/*<button onClick={() => toPDF()}>Download PDF</button>*/}
+						</div>
+						<div className="p-1">
+							<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/")} style={{ marginTop: '0px' }}>
+								REPLAY
+							</button>
+						</div>*/}
+						<div className="row p-3 mt-auto">
+							<div className="col-12">
+								<button className="next-button btn w-100 py-3 mb-3 button-text" onClick={() => navigate("/complete-feedbck")}>NEXT</button>
+								<button className="next-button-two btn w-100 py-3 button-text" onClick={() => navigate("/")}>REPLAY</button>
+							</div>
 						</div>
 					</div>
 				</div>
