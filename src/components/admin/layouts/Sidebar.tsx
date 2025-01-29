@@ -1,61 +1,26 @@
-import { useNavigate} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 const Sidebar = () => {
 	let navigate = useNavigate();
 	return (
-		<div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
-    <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      
-      <span className="fs-4">Sidebar</span>
-    </a>
-    <hr />
-    <ul className="nav nav-pills flex-column mb-auto">
-      <li className="nav-item">
-        <a href="#" className="nav-link active" aria-current="page">
-         
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-          
-          Dashboard
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-          
-          Orders
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-          
-          Products
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-          
-          Customers
-        </a>
-      </li>
-    </ul>
-    <hr />
-    <div className="dropdown">
-      <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-        <strong>mdo</strong>
-      </a>
-      <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a className="dropdown-item" href="#">New project...</a></li>
-        <li><a className="dropdown-item" href="#">Settings</a></li>
-        <li><a className="dropdown-item" href="#">Profile</a></li>
-        <li><hr className="dropdown-divider" /></li>
-        <li><a className="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
-  </div>
+		<nav className="col-md-2 d-none d-md-block bg-light sidebar">
+			<div className="sidebar-sticky">
+				<ul className="nav flex-column">
+					<li className="nav-item">
+						<Link className="nav-link active" to="/admin/dashboard">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+							Dashboard <span className="sr-only"></span>
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/admin/update-home-page-data">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+						Update Home Page Data
+						</Link>
+					</li>
+				</ul>
+			</div>
+        </nav>
 	);
 };
 

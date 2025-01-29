@@ -42,7 +42,7 @@ function Feedback() {
 					url: "fun-facts/feedback/get-all",
 					method: "GET",
 				});
-				console.log('response', response)
+				//console.log('response', response)
 				setFeedbacks(response.data.data);
 				getFunFactFeedback();
 			} catch (error) {

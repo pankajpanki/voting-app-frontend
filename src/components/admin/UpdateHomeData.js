@@ -9,7 +9,7 @@ import Sidebar from './layouts/Sidebar'
 //import { ToastContainer, toast } from 'react-toastify'; // then this
 //import { makeRequest } from 'src/_helpers'
 
-const Dashboard = () => {
+const UpdateHomeData = () => {
 
 	return (
 		<>
@@ -28,4 +28,4 @@ const Dashboard = () => {
 	)
 }
 
-export default Dashboard
+export default UpdateHomeData
