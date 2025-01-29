@@ -95,32 +95,38 @@ const Login = () => {
 	}
 	
 	return (
-		<div id="login">
+		<div id="login" style={{ height: '100vh', background: 'linear-gradient(180deg, #0A0F1F 4.91%, #F2F2F2 20%,  #E9E9E9 100%)' }}>
 			<h3 className="text-center text-white pt-5">Login form</h3>
 			<div className="container">
-				<div id="login-row" className="row justify-content-center align-items-center">
-					<div id="login-column" className="col-md-6">
-						<div id="login-box" className="col-md-12">
-							<form id="login-form" className="form" action="" method="post">
-								<h3 className="text-center text-info">Login</h3>
-								<div className="form-group">
-									<label for="email" className="text-info">Email:</label><br />
-									<input type="text" name="email" id="email" className="form-control" value={form.email} onChange={valueChanged} />
-									{form.email_error !== '' ? <span className="text-danger">{form.email_error}</span> : ''}
-								</div>
-								<div className="form-group">
-									<label for="password" className="text-info">Password:</label><br />
-									<input type="password" name="password" id="password" className="form-control" value={form.password} onChange={valueChanged} />
-									{form.password_error !== '' ? <span className="text-danger">{form.password_error}</span> : ''}
-								</div>
-								<div className="form-group mt-5">
-									{/*<label for="remember-me" className="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox" /></span></label><br>*/}
-									<input type="button" name="submit" className="btn btn-info btn-md" value="SUBMIT" onClick={(e) => handleSubmit(e)} />
-								</div>
-								{/*<div id="register-link" className="text-right">
-									<a href="#" className="text-info">Register here</a>
-								</div>*/}
-							</form>
+				<div className="row justify-content-center align-items-center">
+					<div className="card col-md-6">
+						<div className="col-md-12">
+							<h3 className="text-center text-info mt-5">Login</h3>
+							<div className="form-group mt-4 mb-4">
+								<label for="email" className="text-info">Email:</label><br />
+								<input type="text" name="email" id="email" className="form-control" value={form.email} onChange={valueChanged} />
+								{form.email_error !== '' ? <span className="text-danger">{form.email_error}</span> : ''}
+							</div>
+							
+							<div className="form-group">
+								<label for="password" className="text-info">Password:</label><br />
+								<input type="password" name="password" id="password" className="form-control" value={form.password} onChange={valueChanged} />
+								{form.password_error !== '' ? <span className="text-danger">{form.password_error}</span> : ''}
+							</div>
+							<div className="form-group mt-5 mb-4">
+								{issubmiting ? (
+									<button className="btn btn-block btn-border btn-success">
+										<div className="spinner-border text-info" role="status">
+											<span className="sr-only"></span>
+										</div>
+										<span className="sr-only text-info p-2">Wait...</span>
+									</button>
+								) : (
+									<button className="btn btn-block btn-success" onClick={(e) => handleSubmit(e)}>
+										SUBMIT
+									</button>
+								)}
+							</div>
 						</div>
 					</div>
 				</div>

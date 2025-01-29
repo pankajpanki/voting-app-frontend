@@ -64,8 +64,8 @@ function SpecialCases() {
 			// Update the state in the store
 			addOrUpdateSpecialCaseFAQ(selectedoptions);
 		}else{
-			const ids = specialCases.map(item => item.id);
-			addOrUpdateSpecialCaseFAQ(ids);
+			//const ids = specialCases.map(item => item.id);
+			//addOrUpdateSpecialCaseFAQ(ids);
 		}
 		setChecklistAdded(true);
 		// Reset checklist added state after 5 seconds

@@ -91,13 +91,13 @@ function Feedback() {
 			if(feedback.earned_by === 'viewed_every_question' && (viewedFunFact.length === questions.length && questions.length > 0)){
 				console.log('viewed_every_question');
 				setUserback(feedback);
-			}else if(feedback.earned_by === 'one_clicked' && selectedFunFact.length > 0){
+			}else if(feedback.earned_by === 'one_clicked' && (viewedFunFact.length === 1 && checkListFunFact.length === 0 && !funFactShowMore)){
 				console.log('one_clicked');
 				setUserback(feedback);
 			}else if(feedback.earned_by === 'add_to_ckecklist_once' && checkListFunFact.length > 0){
 				console.log('add_to_ckecklist_once');
 				setUserback(feedback);
-			}else if(feedback.earned_by === 'show_more_selected_once' && funFactShowMore){
+			}else if(feedback.earned_by === 'show_more_selected_once' && (funFactShowMore && checkListFunFact.length === 0 && !funFactShowMore)){
 				console.log('show_more_selected_once');
 				setUserback(feedback);
 			}

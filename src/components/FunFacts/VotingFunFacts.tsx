@@ -25,6 +25,7 @@ const VotingFunFacts = () => {
 	const hasFetchedData = useRef(false);
 
 	const handleCardClick = (itemId: string) => {
+		//console.log('on card click', itemId)
 		if(itemId !== currentIndex){
 			setCurrentIndex(itemId);
 		}else{
@@ -132,7 +133,7 @@ const VotingFunFacts = () => {
 		}
 		return false;
 	}
-
+	//console.log('viewedFunFact', viewedFunFact)
 	return (
 		<main className="container">
 			<div className="row justify-content-center">
