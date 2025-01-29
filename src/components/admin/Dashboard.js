@@ -1,6 +1,5 @@
 import React from "react"
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react'
-import AppSidebar from './components/AppSidebar';
 //import { CChartLine,CChart } from '@coreui/react-chartjs'
 //import { getStyle, hexToRgba } from '@coreui/utils'
 //import CIcon from '@coreui/icons-react'
@@ -15,7 +14,7 @@ const Dashboard = () => {
     <>
       <CCard className="mb-4">
         <CCardBody>
-			<AppSidebar />
+			
           <CRow>
             <CCol xs={12} md={12} xl={12}>
               <CRow>

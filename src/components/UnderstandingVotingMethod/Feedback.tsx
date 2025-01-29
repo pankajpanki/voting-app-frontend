@@ -96,7 +96,11 @@ function Feedback() {
 				}
 			}
 			// Update the state with the selected feedback
-			setUserback(check_user_feedback);
+			if(check_user_feedback.badge !== ''){
+				setUserback(check_user_feedback);
+			}else{
+				setUserback(feedbacks[0]);
+			}
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		} finally {

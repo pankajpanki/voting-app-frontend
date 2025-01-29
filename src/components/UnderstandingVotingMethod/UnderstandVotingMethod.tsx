@@ -67,7 +67,11 @@ const UnderstandVotingMethod = () => {
 	};
 	
 	const toggleFlip = (index: string) => {
-		setCurrentIndex(index); // Flip only the clicked card
+		if(index !== currentIndex){
+			setCurrentIndex(index);
+		}else{
+			setCurrentIndex('');
+		}
 		if(!viewedUVM.includes(index)){
 			addOrUpdateViewedUVM(index);
 		}
@@ -110,7 +114,7 @@ const UnderstandVotingMethod = () => {
 								) : (
 									<div>
 										{votingOptions.map((option, index) => (
-											<div key={option.id} style={{ perspective: "1000px" }}>
+											<div key={option.id} style={{ perspective: "1000px" }} onClick={() => toggleFlip(option.id)}>
 												<div className={`card mb-3 border-0 flip-card ${currentIndex === option.id ? 'flipped' : ''}`}>
 													{/* Front of the card */}
 													<div className="flip-card-front">
@@ -130,7 +134,7 @@ const UnderstandVotingMethod = () => {
 																</label>
 															</div>
 														</div>
-														<div className={`d-flex flex-column align-items-center justify-content-center mt-3`} onClick={() => toggleFlip(option.id)}>
+														<div className={`d-flex flex-column align-items-center justify-content-center mt-3`}>
 															<div className="rounded-circle d-flex align-items-center justify-content-center" style={{ backgroundColor: '#0A0F1F', width: '70px', height: '70px' }}>
 																<img src={option.image_url} alt={option.title} />
 															</div>
@@ -139,7 +143,7 @@ const UnderstandVotingMethod = () => {
 													</div>
 													{/* Back of the card */}
 													<div className="flip-card-back">
-														<div onClick={() => setCurrentIndex('')}>
+														<div>
 															<div className="mb-2 d-flex align-items-center">
 																<label className="vm-info-title me-2">What it is:</label>
 																<span className="vm-info-text mb-0">{option.description}</span>

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {CButton, CCard, CCardBody, CCardGroup, CCol, CContainer, CForm, CFormInput, CInputGroup, CInputGroupText, CFormText, CRow, CSpinner } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
 import 'react-toastify/dist/ReactToastify.css' // import first
 import { ToastContainer, toast } from 'react-toastify' // then this
 //import sideImage from 'src/assets/images/login-side.png'
@@ -98,82 +95,36 @@ const Login = () => {
 	}
 	
 	return (
-		<div className="bg-light min-vh-100 d-flex flex-row align-items-center">
-			<CContainer>
-				<CRow className="justify-content-center">
-					<CCol md={8}>
-						<CCardGroup>
-							<CCard className="p-4">
-								<CCardBody>
-									<CForm noValidate validated={validated} >
-										<h1>Login</h1>
-										<p className="text-medium-emphasis">Sign In to your account</p>
-										<ToastContainer />
-										<CRow className="mb-3">
-											<CInputGroup>
-												<CInputGroupText>
-													<CIcon icon={cilUser} />
-												</CInputGroupText>
-												<CFormInput type="text" placeholder="Email" autoComplete="off" name="email" id="email" onChange={valueChanged} />
-											</CInputGroup>
-											<CFormText className="text-danger">{form.email_error}</CFormText>
-										</CRow>
-										<CRow className="mb-4">
-											<CInputGroup>
-												<CInputGroupText>
-													<CIcon icon={cilLockLocked} />
-												</CInputGroupText>
-												<CFormInput type="password" placeholder="Password" autoComplete="off" name="password" id="password" onChange={valueChanged} />
-											</CInputGroup>
-											<CFormText className="text-danger">{form.password_error}</CFormText>
-										</CRow>
-										{/*<CRow>
-											<CCol xs={12} className="text-center">
-												<p>
-												  Forgot your password ? No need to <a href="/forgot-password">panic!</a>
-												</p>
-											</CCol>
-										</CRow>*/}
-										<CRow>
-											{issubmiting ?
-												(
-													<div className="d-grid gap-2">
-														<CButton disabled color="primary" className="px-4" >
-															<CSpinner component="span" size="sm" aria-hidden="true" />
-															Wait...
-														</CButton>
-													</div>
-												)
-												:
-												(
-													<div className="d-grid gap-2">
-														<CButton color="primary" className="px-4" onClick={handleSubmit}>
-															Login
-														</CButton>
-													</div>
-												)
-											}
-										</CRow>
-									</CForm>
-								</CCardBody>
-							</CCard>
-							<CCard className="" style={{ width: '44%', background: 'linear-gradient(180deg, #0A0F1F 4.91%, #F2F2F2 20%,  #E9E9E9 100%)' }}>
-								<CCardBody className="text-center">
-									<div className="text-center">
-										{/* Map and Bear Images */}
-										<div className="map-container position-relative" >
-											<div>
-											<img src="/assets/canada_blank_map.png" className="map-image" alt="Canada-Blank-Map" />
-											</div>
-											<img src="/assets/canada_bear.png" className="bear-image" alt="Canada-Bear" />
-										</div>
-									</div>
-								</CCardBody>
-							</CCard>
-						</CCardGroup>
-					</CCol>
-				</CRow>
-			</CContainer>
+		<div id="login">
+			<h3 className="text-center text-white pt-5">Login form</h3>
+			<div className="container">
+				<div id="login-row" className="row justify-content-center align-items-center">
+					<div id="login-column" className="col-md-6">
+						<div id="login-box" className="col-md-12">
+							<form id="login-form" className="form" action="" method="post">
+								<h3 className="text-center text-info">Login</h3>
+								<div className="form-group">
+									<label for="email" className="text-info">Email:</label><br />
+									<input type="text" name="email" id="email" className="form-control" value={form.email} onChange={valueChanged} />
+									{form.email_error !== '' ? <span className="text-danger">{form.email_error}</span> : ''}
+								</div>
+								<div className="form-group">
+									<label for="password" className="text-info">Password:</label><br />
+									<input type="password" name="password" id="password" className="form-control" value={form.password} onChange={valueChanged} />
+									{form.password_error !== '' ? <span className="text-danger">{form.password_error}</span> : ''}
+								</div>
+								<div className="form-group mt-5">
+									{/*<label for="remember-me" className="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox" /></span></label><br>*/}
+									<input type="button" name="submit" className="btn btn-info btn-md" value="SUBMIT" onClick={(e) => handleSubmit(e)} />
+								</div>
+								{/*<div id="register-link" className="text-right">
+									<a href="#" className="text-info">Register here</a>
+								</div>*/}
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

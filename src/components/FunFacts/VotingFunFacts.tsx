@@ -24,18 +24,16 @@ const VotingFunFacts = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const hasFetchedData = useRef(false);
 
-	const handleCardClick = (event: React.MouseEvent | React.TouchEvent) => {
-		//console.log("Click triggered!");
-		const itemId = (event.target as HTMLElement).getAttribute('data-item-id');
-		if (itemId) {
-			//console.log('Clicked item ID:', itemId);
-			setCurrentIndex(itemId); // Flip the clicked card
-			if (!viewedFunFact.includes(itemId)) {
-				playCurrencySound();
-				addOrUpdateViewedFunFact(itemId);  // Assuming this function expects a string as parameter
-			}
+	const handleCardClick = (itemId: string) => {
+		if(itemId !== currentIndex){
+			setCurrentIndex(itemId);
+		}else{
+			setCurrentIndex('');
 		}
-		
+		if (!viewedFunFact.includes(itemId)) {
+			playCurrencySound();
+			addOrUpdateViewedFunFact(itemId);  // Assuming this function expects a string as parameter
+		}
 	};
 	//first time when a card is click then the coin sound is played
     var playCurrencySound = () => {     
@@ -153,9 +151,9 @@ const VotingFunFacts = () => {
 									{currentquestions.length > 0 ? (
 										<>
 											{currentquestions.map((item) => (
-												<div key={item.id} style={{ perspective: "1000px" }}>
+												<div key={item.id} style={{ perspective: "1000px" }} onClick={() => handleCardClick(item.id)}>
 													<div className={`card mb-3 border-0 flip-card ${currentIndex === item.id ? 'flipped' : ''}`} style={{ backgroundColor: checkItemInCheckList(item.id) ? '#FFF9E9' : '' }}>
-														<div className="flip-card-front" data-item-id={item.id} onClick={(e) => handleCardClick(e)}>
+														<div className="flip-card-front">
 															<div className="d-flex justify-content-end v-m-check">
 																<div className="custom-checkbox">
 																	<label className="checkbox-container">
@@ -176,9 +174,9 @@ const VotingFunFacts = () => {
 																<h6 className="vm-card-title mt-2 mb-0">{item.question}</h6>
 															</div>
 														</div>
-														<div className="flip-card-back" onClick={() => setCurrentIndex('')}>
+														<div className="flip-card-back">
 															<div>
-																<div className="mt-4 d-flex align-items-center justify-content-center">
+																<div className="mt-6 d-flex align-items-center justify-content-center">
 																	<h6 className="vm-card-title mt-2 mb-0">{item.answer}</h6>
 																</div>
 															</div>

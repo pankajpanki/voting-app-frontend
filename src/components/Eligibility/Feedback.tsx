@@ -66,7 +66,7 @@ function Feedback() {
 	}, [feedbacks]);
   
 	/* Check eligibility based on selected answers and match against criteria */
-	const getEligibilityFeedback = () => {
+	/*const getEligibilityFeedback = () => {
 		for (let i = 0; i < feedbacks.length; i++) {
 			const feedback = feedbacks[i];
 			//console.log('feedback', feedback)
@@ -91,7 +91,52 @@ function Feedback() {
 			} else {
 			  console.error('Arrays have different lengths or are empty.');
 			}
-			
+		}
+		
+		//If no condition match then select default
+		let default_feedback = feedbacks.filter((item) => item.badge === "Democracy Explorer")
+		if(default_feedback.length > 0){
+			setUserback(default_feedback[0]);
+		}
+	};*/
+	
+	const getEligibilityFeedback = () => {
+		for (let i = 0; i < feedbacks.length; i++) {
+			const feedback = feedbacks[i];
+			const condition = feedback.condition;
+			const condition_question = feedback.condtion_question;
+
+			// Ensure both arrays exist and have the same length
+			if (condition && condition_question && condition.length === condition_question.length && condition.length > 0) {
+				// Merge condition and condition_question arrays into KeyValuePair[] format
+				const mergedArray: KeyValuePair[] = condition.map((value, index) => {
+					return { key: condition_question[index], value };
+				});
+
+				// Convert eligibility array to KeyValuePair[] format if it contains strings
+				const saved_array: KeyValuePair[] = eligibility.map(item => {
+					if (typeof item === 'string') {
+						// If the item is a string, map it to an object with a default key
+						return { key: 'default_key', value: item };
+					}
+					return item; // Otherwise, it's already a KeyValuePair object
+				});
+
+				// Check if the merged array and saved array match with flexibility
+				const isEligible = areArraysMatchingWithFlexibility(mergedArray, saved_array);
+				if (isEligible) {
+					setUserback(feedback);
+					return; // Exit the loop once a matching feedback is found
+				}
+			} else {
+				console.error('Arrays have different lengths or are empty.');
+			}
+		}
+
+		// If no condition match, select the default feedback
+		const default_feedback = feedbacks.filter(item => item.badge === "Democracy Explorer");
+		if (default_feedback.length > 0) {
+			setUserback(default_feedback[0]);
 		}
 	};
 	
