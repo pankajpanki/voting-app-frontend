@@ -22,6 +22,7 @@ import CompleteFeedback from "./components/FinalCheckList/Feedback";
 //admin route
 import Login from "./components/admin/Login";
 import Dashboard from "./components/admin/Dashboard";
+import UpdateHomeData from "./components/admin/UpdateHomeData";
 
 function App() {
 	return (
@@ -46,6 +47,7 @@ function App() {
 					<Route path='/save-as-pdf' element={<PDFCheckList/>} />
 					<Route path='/admin/login' element={<Login/>} />
 					<Route path='/admin/dashboard' element={<Dashboard/>} />
+					<Route path='/admin/update-home-page-data' element={<UpdateHomeData/>} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</BrowserRouter >

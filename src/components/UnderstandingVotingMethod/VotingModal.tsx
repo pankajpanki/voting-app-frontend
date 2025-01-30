@@ -21,6 +21,7 @@ interface VotingModalProps {
 }
 
 export const VotingModal: React.FC<VotingModalProps> = ({ selectedData, currentIndex, isOpen, onClose, setSelected }) => {
+	//console.log('selectedData', selectedData)
 	// Temporarily render the modal regardless of the exit state
 	if (!isOpen /* && animationClass === "modal-exit" */) return null;
 

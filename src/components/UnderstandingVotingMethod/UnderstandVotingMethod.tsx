@@ -24,6 +24,7 @@ const UnderstandVotingMethod = () => {
 	const [currentIndex, setCurrentIndex] = useState<string>('');
 	const [votingOptions, setVotingOptions] = useState<VotingMethod[]>([]);
 	const [modal, setModalOpen] = useState<boolean>(false);
+	const [modalIndex, setModalIndex] = useState<string>('');
 	const [loading, setLoading] = useState<boolean>(true);
 	const hasFetchedData = useRef(false);
 
@@ -66,6 +67,11 @@ const UnderstandVotingMethod = () => {
 		setModalOpen(false);
 	};
 	
+	const handleModelOpen = (itemId: string) => {
+		setModalIndex(itemId);
+		setModalOpen(true);
+	}
+	
 	const toggleFlip = (index: string) => {
 		if(index !== currentIndex){
 			setCurrentIndex(index);
@@ -88,11 +94,15 @@ const UnderstandVotingMethod = () => {
 	};
 	
 	const getCurrentOption = () => {
-		if(currentIndex !== ''){
+		if(modalIndex !== ''){
 			let filter = votingOptions.filter((item: VotingMethod) => {
-				return item.id === currentIndex;
+				return item.id === modalIndex;
 			})
-			return filter[0];
+			if(filter.length > 0){
+				return filter[0];
+			}else{
+				return {title: '', description: '', location: '', requirements: '', date: '', image_url: '', content: '',};
+			}
 		}
 		return {title: '', description: '', location: '', requirements: '', date: '', image_url: '', content: '',};
 	}
@@ -162,7 +172,7 @@ const UnderstandVotingMethod = () => {
 															</div>
 														</div>
 														{option.content !== 'N/A' && (
-															<button className="btn w-100 py-2 mt-2 vm-detail-button" onClick={() => setModalOpen(true)}>MORE DETAILS</button>
+															<button className="btn w-100 py-2 mt-2 vm-detail-button" onClick={() => handleModelOpen(option.id)}>MORE DETAILS</button>
 														)}
 													</div>
 												</div>

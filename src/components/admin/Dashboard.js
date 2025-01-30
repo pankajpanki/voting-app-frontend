@@ -17,10 +17,10 @@ const Dashboard = () => {
 			<div className="container-fluid">
 				<div className="row">
 					<Sidebar />
-					<main className="col-md-9 ml-sm-auto col-lg-10 px-4 mt-5">
-						<div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-							<h1 className="h2">Welcome</h1>
-						  </div>
+					<main className="col-md-10 ml-sm-auto col-lg-10 px-4 mt-5" style={{ marginLeft: '320px' }}>
+						<div className="text center" style={{ marginTop: '320px' }}>
+							<h1 className="text center">Welcom To Election Canada</h1>
+						</div>
 					</main>
 				</div>
 			</div>
