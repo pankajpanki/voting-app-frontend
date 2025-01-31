@@ -172,7 +172,7 @@ const UpdateHomeData = () => {
 									</div>
 								</div>
 								<div className="row">
-									<div className="col-md-6">
+								{/*<div className="col-md-6">
 										<label className="form-label">Background Image</label>
 										<div className="border p-3">
 											<div className="d-flex justify-content-center">
@@ -187,9 +187,9 @@ const UpdateHomeData = () => {
 												<input type="file" className="form-control d-none" id="backgroundimage" onChange={handleBackImageChange} />
 											</div>
 										</div>
-									</div>
+								</div>*/}
 									<div className="col-md-6">
-										<label className="form-label">Main Image</label>
+										<label className="form-label">Main Image(Bear Image)</label>
 										<div className="border p-3">
 											<div className="d-flex justify-content-center">
 												<div className="position-relative">
