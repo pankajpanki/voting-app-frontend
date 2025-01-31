@@ -72,7 +72,7 @@ function Home() {
 					) : (
 						<div className="">
 							{/* Top Header */}
-							<div className="p-1 text-center mt-3">
+							<div className="p-1 text-center mt-5">
 								{/* Map and Bear Images */}
 								<div className="map-container position-relative">
 									<div>
@@ -84,10 +84,10 @@ function Home() {
 							{/* Content Area */}
 							<div className="">
 								<div className="text-center p-3">
-									<h2 className="mt-4 home-title">{parse(String(homedata.title))}</h2>
-									<h5 className="home-sub-title color-theme-1">{parse(String(homedata.subtitle))}</h5>
-									<p className="mb-2 home-date-title color-theme-2">{parse(String(homedata.dateinfo))}</p>
-									<p className="mb-0 home-info-text color-theme-1">{parse(String(homedata.info))}</p>
+									<h2 className="mt-2 home-title">{parse(String(homedata.title))}</h2>
+									<h5 className="home-sub-title">{parse(String(homedata.subtitle))}</h5>
+									<p className="mb-4 home-date-title">{parse(String(homedata.dateinfo))}</p>
+									<p className="mb-0 home-info-text">{parse(String(homedata.info))}</p>
 									<div className="p-1">
 										<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/begin-journey")}>GET STARTED</button>
 									</div>

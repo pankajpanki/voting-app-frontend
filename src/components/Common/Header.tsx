@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, curre
 			<div className="progress-bar">
 			{showprogress ? <ProgresWizard totalSteps={total_steps} currentStep={current_step} /> : null}
 			</div>
-			<div className="mb-2">
+			<div className="mb-5">
 				<div className="row mt-3 mb-3">
 				  <div className="d-flex justify-content-between align-items-center w-100">
 					<span role="button" onClick={() => navigate(-1)} className="">
