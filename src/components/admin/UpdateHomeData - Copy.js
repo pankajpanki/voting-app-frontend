@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Pencil } from 'lucide-react';
-import toast from "react-hot-toast";
 import { Loader } from '../Common/Loader';
 import Header from './layouts/Header'
 import Sidebar from './layouts/Sidebar'
@@ -10,7 +8,18 @@ import axiosInstance from "../../helper/axiosInstance";
 
 
 
-const toolbarOptions = [];
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+  ['clean']                                         // remove formatting button
+];
 
 const UpdateHomeData = () => {
 	const [itemid, setItemID] = useState('');
@@ -103,7 +112,7 @@ const UpdateHomeData = () => {
 			formData.append('subtitle', subtitle);
 			formData.append('dateinfo', dateinfo);
 			formData.append('info', info);
-			const res = await axiosInstance({
+			const response = await axiosInstance({
 				url: "content-manage/update-home-page-date",
 				method: "POST",
 				data: formData,
@@ -111,15 +120,7 @@ const UpdateHomeData = () => {
 					'Content-Type': 'multipart/form-data',
 				},
 			});
-			if (res.data.type === "success") {
-				toast.success(res.data.message)
-			} else if (res.type === "validation_error") {
-				toast.error(res.data.message)
-			} else {
-				toast.error(res.data.message)
-			}
 		} catch (error) {
-			toast.error(error.message)
 			console.error("Error fetching data:", error);
 		} finally {
 			setSubmitting(false); // Ensure the loader is hidden after the request
@@ -135,14 +136,14 @@ const UpdateHomeData = () => {
 					<main className="col-md-10 ml-sm-auto col-lg-10" style={{ height: '100vh', marginLeft: '317px'}}>
 						<div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
 							<h1 className="h2">Dashboard</h1>
-							<div className="btn-toolbar mt-4 mb-md-0">
+							<div className="btn-toolbar mb-2 mb-md-0">
 								<p className="text-info">Update Home Page Data</p>
 							</div>
 						</div>
 						{loading ? (
 							<Loader />
 						) : (
-							<div className="card p-3">
+							<div>
 								<div className="row">
 									<div className="col-md-6">
 										<div className="mb-3">
@@ -167,57 +168,51 @@ const UpdateHomeData = () => {
 									<div className="col-md-6">
 										<div className="mb-3">
 											<label className="form-label">Description</label>
-											<Editor value={info} onTextChange={(e) => setInfo(e.htmlValue)} style={{ height: '70px' }} toolbar={toolbarOptions} />
+											<Editor value={info} onTextChange={(e) => setInfo(e.htmlValue)} style={{ height: '150px' }} toolbar={toolbarOptions} />
 										</div>
 									</div>
 								</div>
 								<div className="row">
-								{/*<div className="col-md-6">
-										<label className="form-label">Background Image</label>
-										<div className="border p-3">
-											<div className="d-flex justify-content-center">
-												<div className="position-relative">
-													<img id="selectedImage" src={backgroundpreview} alt="example placeholder" style={{ width: '100px', height: '100px', boxShadow: '0px 0px 3px #888888' }} className="rounded-circle"/>
-													<div className="position-absolute top-0 end-0 p-1">
-														<button className="btn btn-secondary rounded-circle btn-sm" style={{ height: '30px', width: '30px', padding: '0', fontSize: '16px',}}	onClick={() => document.getElementById('backgroundimage').click()}>
-															<Pencil color="#FFF" size={18} />
-														</button>
-													</div>
-												</div>
-												<input type="file" className="form-control d-none" id="backgroundimage" onChange={handleBackImageChange} />
-											</div>
-										</div>
-								</div>*/}
 									<div className="col-md-6">
-										<label className="form-label">Main Image(Bear Image)</label>
-										<div className="border p-3">
-											<div className="d-flex justify-content-center">
-												<div className="position-relative">
-													<img id="selectedImage" src={mainpreview} alt="example placeholder" style={{ width: '100px', height: '100px', boxShadow: '0px 0px 3px #888888' }} className="rounded-circle"/>
-													<div className="position-absolute top-0 end-0 p-1">
-														<button className="btn btn-secondary rounded-circle btn-sm" style={{ height: '30px', width: '30px', padding: '0', fontSize: '16px',}}	onClick={() => document.getElementById('mainimage').click()}>
-															<Pencil color="#FFF" size={18} />
-														</button>
-													</div>
-												</div>
-												<input type="file" className="form-control d-none" id="mainimage" onChange={handleMainImageChange} />
-											</div>
+										<div className="mb-3">
+											<label className="form-label">Choose Background Image</label>
+											<input type="file" className="form-control" id="imageInput" accept="image/*" onChange={handleBackImageChange} />
 										</div>
+										{backgroundpreview !== '' && (
+											<div className="mb-3">
+												<label className="form-label">Background Image Preview</label>
+												<div id="imagePreview" className="d-flex justify-content-center">
+													<img id="backgroundpreview" src={backgroundpreview} alt="Image Preview" className="img-fluid" height="100px" width="100px" style={{ backgroundColor: '#DCDCDC' }} />
+												</div>
+											</div>
+										)}
+									</div>
+									<div className="col-md-6">
+										<div className="mb-3">
+											<label className="form-label">Choose Main image</label>
+											<input type="file" className="form-control" id="imageInput" accept="image/*" onChange={handleMainImageChange} />
+										</div>
+										{mainpreview !== '' && (
+											<div className="mb-3">
+												<label className="form-label">Main Image Preview</label>
+												<div id="imagePreview" className="d-flex justify-content-center">
+													<img id="mainpreview" src={mainpreview} alt="Image Preview" className="img-fluid" height="100px" width="100px" />
+												</div>
+											</div>
+										)}
 									</div>
 								</div>
-								<div className="border-bottom mt-2 mb-4"></div>
-								<div className="mb-3 form-check d-flex justify-content-end">
-								  {submitting ? (
-									<button className="btn btn-primary">
-									  <span className="spinner-border spinner-border-sm"></span>
-									  Wait..
+								<div className="border-bottom mb-4"></div>
+								{submitting ? (
+									<button className="btn btn-success">
+										<span className="spinner-border spinner-border-sm"></span>
+										Wait..
 									</button>
-								  ) : (
-									<button className="btn btn-primary" onClick={() => saveData()}>
-									  SUBMIT
+								) : (
+									<button className="btn btn-block btn-success" onClick={() => saveData()}>
+										SUBMIT
 									</button>
-								  )}
-								</div>
+								)}
 							</div>
 						)}
 					</main>

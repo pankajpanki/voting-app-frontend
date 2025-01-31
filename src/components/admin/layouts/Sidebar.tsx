@@ -1,23 +1,32 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FilePenLine, House } from 'lucide-react';
 
 const Sidebar = () => {
 	let navigate = useNavigate();
+	const location = useLocation();
+	
 	return (
 		<nav className="col-md-2 d-none d-md-block bg-light sidebar">
 			<div className="sidebar-sticky">
-				<ul className="nav flex-column">
+				<ul className="nav nav-pills flex-column">
 					<li className="nav-item">
-						<Link className="nav-link active" to="/admin/dashboard">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-							Dashboard <span className="sr-only"></span>
+						<Link className={`nav-link ${location.pathname === '/admin/dashboard' ? 'active' : ''}`} to="/admin/dashboard">
+							<House size={20} />
+							<span className="ms-1">Dashboard </span>
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/admin/update-home-page-data">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-						Update Home Page Data
+						<Link className={`nav-link ${location.pathname === '/admin/update-home-page-data' ? 'active' : ''}`} to="/admin/update-home-page-data">
+							<FilePenLine size={20} />
+							<span className="ms-1">Update Home Page Data</span>
 						</Link>
 					</li>
+					{/*<li className="nav-item">
+						<Link className={`nav-link ${location.pathname === '/admin/update-begin-journey-data' ? 'active' : ''}`} to="/admin/update-begin-journey-data">
+							<FilePenLine size={20} />
+							<span className="ms-1">Update Begin Journey Data</span>
+						</Link>
+					</li>*/}
 				</ul>
 			</div>
         </nav>
