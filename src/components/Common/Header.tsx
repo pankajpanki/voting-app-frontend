@@ -3,6 +3,7 @@ import { ArrowLeft, CircleAlert } from 'lucide-react';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import { ProgresWizard } from './ProgresWizard';
+import parse from 'html-react-parser';
 
 interface HeaderProps {
 	showprogress: boolean;
@@ -27,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, curre
 						<ArrowLeft color="white" size={24} />
 					</span>
 					{title && (
-						<h4 className="main-steps-title mb-0 text-center w-100">{title} 
+						<h4 className="main-steps-title mb-0 text-center w-100">{parse(String(title))}
 							{disclaimer && (
 								<OverlayTrigger
 									placement="bottom"
@@ -46,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ showprogress, total_steps, curre
 				  </div>
 				</div>
 				<div className="text-center">
-					{subtitle && <p className="text-center main-steps-sub-title mt-3 mb-3">{subtitle}</p>}
+					{subtitle && <p className="text-center main-steps-sub-title mt-3 mb-3">{parse(String(subtitle))}</p>}
 				</div>
 			</div>
 		</div>

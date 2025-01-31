@@ -30,10 +30,10 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
 	(config) => {
 		// Add authorization token
-		/*const token = localStorage.getItem("authToken");
+		const token = localStorage.getItem("token");
 		if (token) {
-		  config.headers.Authorization = `Bearer ${token}`;
-		}*/
+			config.headers.Authorization = `Bearer ${token}`;
+		}
 
 		// Add a custom header
 		//config.headers["X-Custom-Header"] = "MyCustomHeaderValue";
@@ -66,6 +66,12 @@ axiosInstance.interceptors.response.use(
 	(response) => {
 		// Transform or log response if needed
 		//return response.data;
+		//console.log('request data', response.data)
+		//console.log('request response', response.data.type)
+		if(response.data.type === 'unauthorized'){
+			localStorage.clear();
+			window.location.href = '/admin/login'
+		}
 		return response;
 	},
 	(error) => {
@@ -76,6 +82,7 @@ axiosInstance.interceptors.response.use(
 			if (error.response) {
 				// Server responded with a status other than 2xx
 				const { status, data } = error.response;
+				
 				const message = data?.message || "An error occurred!";
 				toast.error(`Error ${status}: ${message}`, { duration: 9000, style: { minWidth: '250px' } });
 			} else if (error.request) {

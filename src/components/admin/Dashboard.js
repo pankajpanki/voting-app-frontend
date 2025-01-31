@@ -1,13 +1,6 @@
 import React from "react"
 import Header from './layouts/Header'
 import Sidebar from './layouts/Sidebar'
-//import { CChartLine,CChart } from '@coreui/react-chartjs'
-//import { getStyle, hexToRgba } from '@coreui/utils'
-//import CIcon from '@coreui/icons-react'
-//import { cilPeople, cilDollar, cilTags } from '@coreui/icons'
-//import 'react-toastify/dist/ReactToastify.css'; // import first
-//import { ToastContainer, toast } from 'react-toastify'; // then this
-//import { makeRequest } from 'src/_helpers'
 
 const Dashboard = () => {
 
@@ -17,9 +10,18 @@ const Dashboard = () => {
 			<div className="container-fluid">
 				<div className="row">
 					<Sidebar />
-					<main className="col-md-10 ml-sm-auto col-lg-10 px-4 mt-5" style={{ marginLeft: '320px' }}>
-						<div className="text center" style={{ marginTop: '320px' }}>
-							<h1 className="text center">Welcom To Election Canada</h1>
+					<main className="col-md-10 ml-sm-auto col-lg-10" style={{ height: '100vh', marginLeft: '317px', background: 'linear-gradient(180deg, #F2F2F2 4.91%, #F2F2F2 20%,  #E9E9E9 100%)' }}>
+						<div className="text center">
+							<div className="p-1 text-center mt-5" >
+								<h1 className="text center mt-5">Welcom To Election Canada</h1>
+								{/* Map and Bear Images */}
+								<div className="map-container position-relative">
+									<div>
+									<img src="/assets/canada_blank_map.png" className="map-image" alt="Canada-Blank-Map" />
+									</div>
+									<img src="/assets/canada_bear.png" className="bear-image" alt="Canada-Bear" />
+								</div>
+							</div>
 						</div>
 					</main>
 				</div>

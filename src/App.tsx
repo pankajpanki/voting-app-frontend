@@ -23,6 +23,7 @@ import CompleteFeedback from "./components/FinalCheckList/Feedback";
 import Login from "./components/admin/Login";
 import Dashboard from "./components/admin/Dashboard";
 import UpdateHomeData from "./components/admin/UpdateHomeData";
+import UpdateJourneyData from "./components/admin/UpdateJourneyData";
 
 function App() {
 	return (
@@ -48,6 +49,7 @@ function App() {
 					<Route path='/admin/login' element={<Login/>} />
 					<Route path='/admin/dashboard' element={<Dashboard/>} />
 					<Route path='/admin/update-home-page-data' element={<UpdateHomeData/>} />
+					<Route path='/admin/update-begin-journey-data' element={<UpdateJourneyData/>} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</BrowserRouter >
