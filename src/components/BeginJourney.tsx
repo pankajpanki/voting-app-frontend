@@ -37,7 +37,7 @@ function BeginJourney() {
 									<ModuleItem key={index} imgSrc={item.imgSrc} title={item.title} />
 								))}
 							</div>
-							<p className="text-center">At the end, you’ll get a customized checklist based on your choices!</p>
+							<p className="text-center mb-0">At the end, you’ll get a customized checklist based on your choices!</p>
 							<div className="p-1">
 								<button className="next-button btn w-100 py-3 rounded-4 button-text" onClick={() => navigate("/eligibility-check")}>LET’S GET STARTED!</button>
 							</div>
