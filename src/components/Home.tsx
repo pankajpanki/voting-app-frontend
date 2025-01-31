@@ -19,6 +19,7 @@ function Home() {
 	const [loading, setLoading] = useState(true);
 	const hasFetchedData = useRef(false);
 	
+	
 	useEffect(() => {
 		const fetchData = async () => {
 			setLoading(true); // Ensure the loader is shown before the request
